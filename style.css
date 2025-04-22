@@ -1,51 +1,60 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  color: #333;
 }
 
 .container {
-  max-width: 700px;
-  margin: auto;
-  background: white;
-  padding: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
 h1, h2 {
   text-align: center;
+  color: #444;
 }
 
-label, select {
-  display: block;
-  margin: 10px 0;
-}
-
-select {
+select, button {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 button {
-  display: block;
-  width: 100%;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-.subject {
-  margin: 10px 0;
+.subject-container {
+  margin-top: 20px;
 }
+
+.subject {
+  margin-bottom: 10px;
+}
+
+.sgpa-result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+}
+
 
