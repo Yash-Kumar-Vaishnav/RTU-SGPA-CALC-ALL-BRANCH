@@ -1,111 +1,160 @@
-import { SemToCredits, creditsTillSem } from "./credits.js";
-import gradePoints from "./gradePoints.js";
+const gradePoints = {
+  "A++": 10,
+  "A+": 9,
+  "A": 8.5,
+  "B+": 8,
+  "B": 7.5,
+  "C+": 7,
+  "C": 6.5,
+  "D+": 6,
+  "D": 5.5,
+  "E+": 5,
+  "E": 4,
+  "F": 0
+};
 
-const semesterInput = document.getElementById("semester");
-const calculateButton = document.getElementById("calculate");
-const switchCalculatorButton = document.getElementById("switchCalculator");
-const cgpaCalculatorPopup = document.getElementById("cgpaCalculatorPopup");
-const closePopupButton = document.querySelector(".close-popup");
+const semesters = {
+  1: [
+    ["Engineering Mathematics-I", 4],
+    ["Engineering Chemistry", 4],
+    ["Human Values", 2],
+    ["Programming for Problem Solving", 2],
+    ["Basic Civil Engineering", 2],
+    ["Engineering Chemistry Lab", 1],
+    ["Human Values Activities", 1],
+    ["Computer Programming Lab", 1.5],
+    ["Basic Civil Engineering Lab", 1],
+    ["Computer Aided Engineering Graphics", 1.5],
+    ["DECA", 0.5]
+  ],
+  2: [
+    ["Engineering Mathematics-II", 4],
+    ["Engineering Physics", 4],
+    ["Communication Skills", 2],
+    ["Basic Mechanical Engineering", 2],
+    ["Basic Electrical Engineering", 2],
+    ["Engineering Physics Lab", 1],
+    ["Language Lab", 1],
+    ["Manufacturing Practices Workshop", 1.5],
+    ["Basic Electrical Engineering Lab", 1],
+    ["Computer Aided Machine Drawing", 1.5],
+    ["DECA", 0.5]
+  ],
+  3: [
+    ["Advanced Engineering Mathematics", 3],
+    ["Managerial Economics & Financial Accounting", 2],
+    ["Digital Electronics", 3],
+    ["Data Structures and Algorithms", 3],
+    ["Object Oriented Programming", 3],
+    ["Software Engineering", 3],
+    ["Data Structures and Algorithms Lab", 1.5],
+    ["Object Oriented Programming Lab", 1.5],
+    ["Software Engineering Lab", 1.5],
+    ["Digital Electronics Lab", 1.5],
+    ["Industrial Training", 1],
+    ["Social Outreach", 0.5]
+  ],
+  4: [
+    ["Discrete Mathematics Structure", 3],
+    ["Technical Communication", 2],
+    ["Microprocessor & Interfaces", 3],
+    ["Database Management System", 3],
+    ["Theory of Computation", 3],
+    ["Data Communication and Networks", 3],
+    ["Microprocessor Lab", 1],
+    ["DBMS Lab", 1.5],
+    ["Network Programming Lab", 1.5],
+    ["Linux Shell Programming Lab", 1],
+    ["Java Lab", 1],
+    ["Social Outreach", 0.5]
+  ],
+  5: [
+    ["Information Theory & Coding", 2],
+    ["Compiler Design", 3],
+    ["Operating System", 3],
+    ["Computer Graphics & Multimedia", 3],
+    ["Analysis of Algorithms", 3],
+    ["Human-Computer Interaction", 2],
+    ["CGM Lab", 1],
+    ["Compiler Lab", 1],
+    ["AOA Lab", 1],
+    ["Advance Java Lab", 1],
+    ["Industrial Training", 2.5],
+    ["Social Outreach", 0.5]
+  ],
+  6: [
+    ["Digital Image Processing", 2],
+    ["Machine Learning", 3],
+    ["Information Security Systems", 2],
+    ["Computer Architecture", 3],
+    ["Artificial Intelligence", 2],
+    ["Cloud Computing", 3],
+    ["Distributed Systems", 2],
+    ["DIP Lab", 1.5],
+    ["ML Lab", 1.5],
+    ["Python Lab", 1.5],
+    ["Mobile App Dev Lab", 1.5],
+    ["Social Outreach", 0.5]
+  ],
+  7: [
+    ["Environmental Engg & Disaster Mgmt", 3],
+    ["Internet of Things", 3],
+    ["IoT Lab", 2],
+    ["Cyber Security Lab", 2],
+    ["Industrial Training", 2.5],
+    ["Seminar", 2],
+    ["Social Outreach", 0.5]
+  ],
+  8: [
+    ["Big Data Analytics", 3],
+    ["Big Data Lab", 2],
+    ["Software Testing Lab", 1],
+    ["Project", 7],
+    ["Social Outreach", 0.5],
+    ["Disaster Management", 3]
+  ]
+};
 
-semesterInput.addEventListener("change", renderSubjectInputs);
-window.addEventListener("load", renderSubjectInputs);
-calculateButton.addEventListener("click", calculateSGPA);
+function loadSubjects() {
+  const sem = document.getElementById("semester").value;
+  const form = document.getElementById("subjectForm");
+  form.innerHTML = "";
 
-function renderSubjectInputs() {
-  const semester = parseInt(semesterInput.value);
-  const { subjectToCredits: credits, totalCredits } = SemToCredits[semester];
+  if (!sem || !semesters[sem]) return;
 
-  const subjectInputsContainer = document.getElementById("subjectInputs");
-  const totalCreditsElement = document.getElementById("totalCredits");
-
-  subjectInputsContainer.innerHTML = ""; // Clear previous inputs
-
-  for (const subject in credits) {
-    const div = document.createElement("div"); // Create a container for each input
-    div.classList.add("input-container");
-
+  semesters[sem].forEach((subject, index) => {
+    const div = document.createElement("div");
+    div.className = "subject";
     const label = document.createElement("label");
-    label.setAttribute("for", subject); // Set label for attribute
-    label.textContent = `${subject} (Credits: ${credits[subject]})`;
-
+    label.innerText = `${subject[0]} (${subject[1]} credits)`;
     const select = document.createElement("select");
-    select.id = subject;
-
-    // Populate options
-    for (const grade in gradePoints) {
+    select.name = "grade";
+    select.dataset.credit = subject[1];
+    Object.keys(gradePoints).forEach(grade => {
       const option = document.createElement("option");
-      option.value = grade.toLowerCase();
-      option.textContent = grade;
+      option.value = grade;
+      option.innerText = grade;
       select.appendChild(option);
-    }
-
+    });
     div.appendChild(label);
     div.appendChild(select);
-    subjectInputsContainer.appendChild(div);
-  }
-
-  totalCreditsElement.textContent = `Total Credits: ${totalCredits}`;
+    form.appendChild(div);
+  });
 }
 
 function calculateSGPA() {
-  let totalGradePoints = 0;
-  const semester = parseInt(semesterInput.value);
-  const { subjectToCredits: credits, totalCredits } = SemToCredits[semester];
+  const selects = document.querySelectorAll("select[name='grade']");
+  let totalCredits = 0;
+  let weightedGradePoints = 0;
 
-  // Loop through each subject
-  for (const subject in credits) {
-    const gradeInput = document.getElementById(subject).value.toUpperCase();
-    const gradePoint = gradePoints[gradeInput];
+  selects.forEach(select => {
+    const grade = select.value;
+    const credit = parseFloat(select.dataset.credit);
+    totalCredits += credit;
+    weightedGradePoints += gradePoints[grade] * credit;
+  });
 
-    if (gradePoint !== undefined) {
-      totalGradePoints += gradePoint * credits[subject];
-    }
-  }
-
-  const SGPA = totalGradePoints / totalCredits;
-  document.getElementById("result").innerHTML = `Your SGPA is: ${SGPA.toFixed(
-    2
-  )}`;
+  const sgpa = (weightedGradePoints / totalCredits).toFixed(2);
+  document.getElementById("result").innerText = `Your SGPA is: ${sgpa}`;
 }
 
-// Function to open the popup
-function openPopup() {
-  cgpaCalculatorPopup.style.display = "block";
-}
-
-// Function to close the popup
-function closePopup() {
-  cgpaCalculatorPopup.style.display = "none";
-}
-
-// Event listener for the switchCalculatorButton
-switchCalculatorButton.addEventListener("click", openPopup);
-
-// Event listener for the closePopupButton
-closePopupButton.addEventListener("click", closePopup);
-
-document.getElementById("calculateCGPA").addEventListener("click", function () {
-  const semester = parseInt(
-    cgpaCalculatorPopup.querySelector("#semester").value
-  );
-
-  const cgpaPrevious = parseFloat(
-    cgpaCalculatorPopup.querySelector("#cgpaPrevious").value
-  );
-  const sgpaCurrent = parseFloat(
-    cgpaCalculatorPopup.querySelector("#sgpaCurrent").value
-  );
-
-  const totalCreditsPrevious = creditsTillSem[semester - 1];
-  const totalCreditsCurrent = creditsTillSem[semester] - totalCreditsPrevious;
-
-  const totalCGPAPrevious = cgpaPrevious * totalCreditsPrevious;
-  const totalCGPACurrent = sgpaCurrent * totalCreditsCurrent;
-
-  const totalCredits = totalCreditsPrevious + totalCreditsCurrent;
-
-  const cgpa = (totalCGPAPrevious + totalCGPACurrent) / totalCredits;
-  cgpaCalculatorPopup.querySelector(
-    "#cgpaResult"
-  ).textContent = `Your CGPA is: ${cgpa.toFixed(2)}`;
-});
