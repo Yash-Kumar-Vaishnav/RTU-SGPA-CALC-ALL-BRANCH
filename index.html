@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RTU CSE SGPA Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTU SGPA Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>RTU CSE SGPA Calculator</h1>
-    <label for="semester">Select Semester:</label>
-    <select id="semester" onchange="loadSubjects()">
-      <option value="">--Select--</option>
-      <option value="1">1st Semester</option>
-      <option value="2">2nd Semester</option>
-      <option value="3">3rd Semester</option>
-      <option value="4">4th Semester</option>
-      <option value="5">5th Semester</option>
-      <option value="6">6th Semester</option>
-      <option value="7">7th Semester</option>
-      <option value="8">8th Semester</option>
+    <h1>RTU SGPA Calculator</h1>
+    <label for="branch">Select Branch:</label>
+    <select id="branch" onchange="renderSemesters()">
+      <option value="">-- Select Branch --</option>
+      <option value="CSE">CSE</option>
+      <option value="ECE">ECE</option>
     </select>
-    <form id="subjectForm"></form>
+
+    <label for="semester">Select Semester:</label>
+    <select id="semester" onchange="renderSubjects()" disabled>
+      <option value="">-- Select Semester --</option>
+    </select>
+
+    <form id="subjectsForm"></form>
     <button onclick="calculateSGPA()">Calculate SGPA</button>
     <h2 id="result"></h2>
   </div>
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
