@@ -1,19 +1,111 @@
+import { SemToCredits, creditsTillSem } from "./credits.js";
+import gradePoints from "./gradePoints.js";
 
-function calculateSGPA() {
-    var totalCredits = 0;
-    var totalGradePoints = 0;
+const semesterInput = document.getElementById("semester");
+const calculateButton = document.getElementById("calculate");
+const switchCalculatorButton = document.getElementById("switchCalculator");
+const cgpaCalculatorPopup = document.getElementById("cgpaCalculatorPopup");
+const closePopupButton = document.querySelector(".close-popup");
 
-    var grades = document.querySelectorAll('.subject');
-    var credits = [4, 4, 2, 2, 2, 1, 1, 1.5, 1, 1.5]; // Example credits for the first semester
+semesterInput.addEventListener("change", renderSubjectInputs);
+window.addEventListener("load", renderSubjectInputs);
+calculateButton.addEventListener("click", calculateSGPA);
 
-    for (var i = 0; i < grades.length; i++) {
-        var gradePoint = parseFloat(grades[i].value);
-        if (gradePoint > 0) {
-            totalGradePoints += gradePoint * credits[i];
-            totalCredits += credits[i];
-        }
+function renderSubjectInputs() {
+  const semester = parseInt(semesterInput.value);
+  const { subjectToCredits: credits, totalCredits } = SemToCredits[semester];
+
+  const subjectInputsContainer = document.getElementById("subjectInputs");
+  const totalCreditsElement = document.getElementById("totalCredits");
+
+  subjectInputsContainer.innerHTML = ""; // Clear previous inputs
+
+  for (const subject in credits) {
+    const div = document.createElement("div"); // Create a container for each input
+    div.classList.add("input-container");
+
+    const label = document.createElement("label");
+    label.setAttribute("for", subject); // Set label for attribute
+    label.textContent = `${subject} (Credits: ${credits[subject]})`;
+
+    const select = document.createElement("select");
+    select.id = subject;
+
+    // Populate options
+    for (const grade in gradePoints) {
+      const option = document.createElement("option");
+      option.value = grade.toLowerCase();
+      option.textContent = grade;
+      select.appendChild(option);
     }
 
-    var sgpa = totalGradePoints / totalCredits;
-    document.getElementById('result').textContent = "Your SGPA: " + sgpa.toFixed(2);
+    div.appendChild(label);
+    div.appendChild(select);
+    subjectInputsContainer.appendChild(div);
+  }
+
+  totalCreditsElement.textContent = `Total Credits: ${totalCredits}`;
 }
+
+function calculateSGPA() {
+  let totalGradePoints = 0;
+  const semester = parseInt(semesterInput.value);
+  const { subjectToCredits: credits, totalCredits } = SemToCredits[semester];
+
+  // Loop through each subject
+  for (const subject in credits) {
+    const gradeInput = document.getElementById(subject).value.toUpperCase();
+    const gradePoint = gradePoints[gradeInput];
+
+    if (gradePoint !== undefined) {
+      totalGradePoints += gradePoint * credits[subject];
+    }
+  }
+
+  const SGPA = totalGradePoints / totalCredits;
+  document.getElementById("result").innerHTML = `Your SGPA is: ${SGPA.toFixed(
+    2
+  )}`;
+}
+
+// Function to open the popup
+function openPopup() {
+  cgpaCalculatorPopup.style.display = "block";
+}
+
+// Function to close the popup
+function closePopup() {
+  cgpaCalculatorPopup.style.display = "none";
+}
+
+// Event listener for the switchCalculatorButton
+switchCalculatorButton.addEventListener("click", openPopup);
+
+// Event listener for the closePopupButton
+closePopupButton.addEventListener("click", closePopup);
+
+document.getElementById("calculateCGPA").addEventListener("click", function () {
+  const semester = parseInt(
+    cgpaCalculatorPopup.querySelector("#semester").value
+  );
+
+  const cgpaPrevious = parseFloat(
+    cgpaCalculatorPopup.querySelector("#cgpaPrevious").value
+  );
+  const sgpaCurrent = parseFloat(
+    cgpaCalculatorPopup.querySelector("#sgpaCurrent").value
+  );
+
+  const totalCreditsPrevious = creditsTillSem[semester - 1];
+  const totalCreditsCurrent = creditsTillSem[semester] - totalCreditsPrevious;
+
+  const totalCGPAPrevious = cgpaPrevious * totalCreditsPrevious;
+  const totalCGPACurrent = sgpaCurrent * totalCreditsCurrent;
+
+  const totalCredits = totalCreditsPrevious + totalCreditsCurrent;
+
+  const cgpa = (totalCGPAPrevious + totalCGPACurrent) / totalCredits;
+  cgpaCalculatorPopup.querySelector(
+    "#cgpaResult"
+  ).textContent = `Your CGPA is: ${cgpa.toFixed(2)}`;
+});
