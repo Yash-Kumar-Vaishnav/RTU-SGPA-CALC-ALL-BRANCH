@@ -1,5 +1,3 @@
-// script.js
-
 const subjectsData = {
   CSE: {
     "1st Semester": [
@@ -184,7 +182,6 @@ const subjectsData = {
     "2nd Semester": "same",
   },
 };
-
 const gradePoints = {
   "A++": 10,
   "A+": 9,
@@ -250,7 +247,8 @@ semesterSelect.addEventListener("change", function () {
   subjectsDiv.appendChild(fragment);
 });
 
-document.getElementById("calculateBtn").addEventListener("click", function () {
+document.getElementById("calculateBtn").addEventListener("click", function (e) {
+  e.preventDefault(); // 🛠️ Fix added here
   const gradeSelects = document.querySelectorAll(".grade-select");
   let totalCredits = 0;
   let totalPoints = 0;
@@ -278,4 +276,5 @@ document.getElementById("calculateBtn").addEventListener("click", function () {
   document.getElementById("result").textContent =
     "Your SGPA is: " + sgpa.toFixed(2);
 });
+
 
