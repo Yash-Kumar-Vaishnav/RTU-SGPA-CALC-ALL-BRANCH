@@ -1,129 +1,98 @@
-/* General Styling */
+
+/* style.css */
+
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 700px;
 }
 
 h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 24px;
+  color: #1f2937;
 }
 
-/* Form Container */
-form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  max-width: 100%;
-  text-align: left;
+.selector {
+  margin-bottom: 20px;
 }
 
-/* Label Styling */
 label {
   font-weight: bold;
-  margin-top: 15px;
   display: block;
-  margin-bottom: 5px;
-  font-size: 1rem;
-  color: #333;
+  margin-bottom: 6px;
+  color: #374151;
 }
 
-/* Dropdown and Select Styling */
 select {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  box-sizing: border-box; /* Ensures padding doesn’t affect width */
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
 }
 
-select:focus {
-  outline: none;
-  border-color: #4CAF50;
-  background-color: #fff;
+.subjects {
+  margin-bottom: 20px;
 }
 
-/* Subject and Grade Select Styling */
-#subjects {
-  margin-top: 20px;
-}
-
-#subjects div {
+.subjects .subject {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
 
-#subjects label {
-  margin: 0;
-  font-size: 1rem;
+.subjects .subject label {
+  flex: 1;
+  color: #111827;
 }
 
-.grade-select {
-  width: 120px;
+.subjects .subject select {
+  flex: 0.5;
   padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.grade-select:focus {
-  outline: none;
-  border-color: #4CAF50;
-  background-color: #fff;
-}
-
-/* Button Styling */
 button {
   width: 100%;
   padding: 12px;
-  font-size: 1.2rem;
-  background-color: #4CAF50;
+  background-color: #2563eb;
   color: white;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #1e40af;
 }
 
-/* Result Styling */
-#result {
+.result {
   margin-top: 20px;
-  font-size: 1.2rem;
+  font-size: 18px;
   font-weight: bold;
-  color: #333;
   text-align: center;
-  display: none; /* Initially hide result */
+  color: #10b981;
 }
 
-/* Error message */
-#result.error {
-  color: red;
-}
 
 
 
