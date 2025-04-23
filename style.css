@@ -32,22 +32,23 @@ form {
 /* Label Styling */
 label {
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 15px;
   display: block;
   margin-bottom: 5px;
   font-size: 1rem;
   color: #333;
 }
 
-/* Dropdown Styling */
+/* Dropdown and Select Styling */
 select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin-bottom: 15px;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
+  box-sizing: border-box; /* Ensures padding doesn’t affect width */
 }
 
 select:focus {
@@ -78,11 +79,12 @@ select:focus {
 }
 
 .grade-select {
-  width: 100px;
-  padding: 5px;
+  width: 120px;
+  padding: 8px;
   border-radius: 5px;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
+  box-sizing: border-box;
 }
 
 .grade-select:focus {
@@ -94,7 +96,7 @@ select:focus {
 /* Button Styling */
 button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   font-size: 1.2rem;
   background-color: #4CAF50;
   color: white;
@@ -122,6 +124,7 @@ button:hover {
 #result.error {
   color: red;
 }
+
 
 
 
