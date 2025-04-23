@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGPA Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="container">
-    <h1>SGPA Calculator</h1>
+  <h1>SGPA Calculator</h1>
 
-    <div class="selector">
-      <label for="branch">Select Branch:</label>
-      <select id="branch">
-        <option value="">-- Select Branch --</option>
-        <option value="CSE">CSE</option>
-        <option value="ECE">ECE</option>
-      </select>
-    </div>
+  <!-- Branch Selection -->
+  <label for="branch">Select Branch:</label>
+  <select id="branch" name="branch">
+    <option value="">-- Select Branch --</option>
+    <option value="CSE">Computer Science Engineering (CSE)</option>
+    <option value="ECE">Electronics and Communication Engineering (ECE)</option>
+    <option value="EE">Electrical Engineering (EE)</option>
+    <option value="ME">Mechanical Engineering (ME)</option>
+    <option value="CE">Civil Engineering (CE)</option>
+    <option value="IT">Information Technology (IT)</option>
+  </select>
 
-    <div class="selector">
-      <label for="semester">Select Semester:</label>
-      <select id="semester">
-        <option value="">-- Select Semester --</option>
-        <!-- Options will be populated dynamically -->
-      </select>
-    </div>
+  <!-- Semester Selection -->
+  <label for="semester">Select Semester:</label>
+  <select id="semester" name="semester">
+    <option value="">-- Select Semester --</option>
+  </select>
 
-    <div id="subjects" class="subjects"></div>
-
-    <button id="calculateBtn">Calculate SGPA</button>
-    <div id="result" class="result"></div>
+  <!-- Subjects List -->
+  <div id="subjects">
+    <!-- Subjects and grade selectors will appear here -->
   </div>
+
+  <!-- Calculate Button -->
+  <button id="calculateBtn">Calculate SGPA</button>
+
+  <!-- Result Display -->
+  <p id="result"></p>
 
   <script src="script.js"></script>
 </body>
-
 </html>
+
 
 
 
