@@ -1,96 +1,50 @@
-/* style.css */
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f3f4f6;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-}
-
-.container {
-  background-color: white;
-  padding: 30px;
-  margin-top: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 700px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: #1f2937;
-}
-
-.selector {
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 label {
   font-weight: bold;
-  display: block;
-  margin-bottom: 6px;
-  color: #374151;
 }
 
 select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  font-size: 16px;
-}
-
-.subjects {
-  margin-bottom: 20px;
-}
-
-.subjects .subject {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.subjects .subject label {
-  flex: 1;
-  color: #111827;
-}
-
-.subjects .subject select {
-  flex: 0.5;
+  width: 250px;
   padding: 8px;
-  font-size: 14px;
+  margin: 10px 0;
+}
+
+#subjects {
+  margin-top: 20px;
+}
+
+#subjects div {
+  margin-bottom: 15px;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  background-color: #2563eb;
+  padding: 10px 20px;
+  background-color: #4CAF50;
   color: white;
-  font-size: 16px;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #1e40af;
+  background-color: #45a049;
 }
 
-.result {
-  margin-top: 20px;
+#result {
   font-size: 18px;
   font-weight: bold;
-  text-align: center;
-  color: #10b981;
+  margin-top: 20px;
+  color: #333;
 }
+
+.grade-select {
+  width: 100px;
+  padding: 5px;
+}
+
 
 
 
