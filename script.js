@@ -167,6 +167,22 @@ const subjectsData = {
       { name: "Project Phase II", credit: 4 },
     ],
   },
+  EE: {
+    "1st Semester": "same",
+    "2nd Semester": "same",
+  },
+  ME: {
+    "1st Semester": "same",
+    "2nd Semester": "same",
+  },
+  CE: {
+    "1st Semester": "same",
+    "2nd Semester": "same",
+  },
+  IT: {
+    "1st Semester": "same",
+    "2nd Semester": "same",
+  },
 };
 
 const gradePoints = {
@@ -187,6 +203,11 @@ const gradePoints = {
 const branchSelect = document.getElementById("branch");
 const semesterSelect = document.getElementById("semester");
 const subjectsDiv = document.getElementById("subjects");
+
+const gradeOptions = `<option value="">-- Select Grade --</option>` +
+  Object.entries(gradePoints)
+    .map(([grade, point]) => `<option value="${point}">${grade}</option>`)
+    .join("");
 
 branchSelect.addEventListener("change", function () {
   semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
@@ -215,35 +236,46 @@ semesterSelect.addEventListener("change", function () {
     return;
   }
 
-  subjects.forEach((subj, index) => {
+  const fragment = document.createDocumentFragment();
+  subjects.forEach((subj) => {
     const div = document.createElement("div");
     div.innerHTML = `
       <label>${subj.name} (${subj.credit} credits)</label>
       <select class="grade-select" data-credit="${subj.credit}">
-        ${Object.entries(gradePoints)
-          .map(
-            ([grade, point]) => `<option value="${point}">${grade}</option>`
-          )
-          .join("")}
+        ${gradeOptions}
       </select>
     `;
-    subjectsDiv.appendChild(div);
+    fragment.appendChild(div);
   });
+  subjectsDiv.appendChild(fragment);
 });
 
 document.getElementById("calculateBtn").addEventListener("click", function () {
   const gradeSelects = document.querySelectorAll(".grade-select");
   let totalCredits = 0;
   let totalPoints = 0;
+  let allSelected = true;
 
   gradeSelects.forEach((select) => {
     const credit = parseFloat(select.dataset.credit);
     const point = parseFloat(select.value);
+
+    if (isNaN(point)) {
+      allSelected = false;
+    }
+
     totalCredits += credit;
     totalPoints += credit * point;
   });
+
+  if (!allSelected) {
+    document.getElementById("result").textContent =
+      "Please select all grades before calculating.";
+    return;
+  }
 
   const sgpa = totalPoints / totalCredits;
   document.getElementById("result").textContent =
     "Your SGPA is: " + sgpa.toFixed(2);
 });
+
