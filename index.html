@@ -8,39 +8,39 @@
 </head>
 <body>
   <h1>SGPA Calculator</h1>
+  <form>
+    <!-- Branch Selection -->
+    <label for="branch">Select Branch:</label>
+    <select id="branch" name="branch">
+      <option value="">-- Select Branch --</option>
+      <option value="CSE">Computer Science Engineering (CSE)</option>
+      <option value="ECE">Electronics and Communication Engineering (ECE)</option>
+      <option value="EE">Electrical Engineering (EE)</option>
+      <option value="ME">Mechanical Engineering (ME)</option>
+      <option value="CE">Civil Engineering (CE)</option>
+      <option value="IT">Information Technology (IT)</option>
+    </select>
 
-  <!-- Branch Selection -->
-  <label for="branch">Select Branch:</label>
-  <select id="branch" name="branch">
-    <option value="">-- Select Branch --</option>
-    <option value="CSE">Computer Science Engineering (CSE)</option>
-    <option value="ECE">Electronics and Communication Engineering (ECE)</option>
-    <option value="EE">Electrical Engineering (EE)</option>
-    <option value="ME">Mechanical Engineering (ME)</option>
-    <option value="CE">Civil Engineering (CE)</option>
-    <option value="IT">Information Technology (IT)</option>
-  </select>
+    <!-- Semester Selection -->
+    <label for="semester">Select Semester:</label>
+    <select id="semester" name="semester">
+      <option value="">-- Select Semester --</option>
+    </select>
 
-  <!-- Semester Selection -->
-  <label for="semester">Select Semester:</label>
-  <select id="semester" name="semester">
-    <option value="">-- Select Semester --</option>
-  </select>
+    <!-- Subjects List -->
+    <div id="subjects"></div>
 
-  <!-- Subjects List -->
-  <div id="subjects">
-    <!-- Subjects and grade selectors will appear here -->
-  </div>
+    <!-- Calculate Button -->
+    <button type="button" id="calculateBtn">Calculate SGPA</button>
 
-  <!-- Calculate Button -->
-  <button id="calculateBtn">Calculate SGPA</button>
-
-  <!-- Result Display -->
-  <p id="result"></p>
-
+    <!-- Result Display -->
+    <p id="result"></p>
+  </form>
+  
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
