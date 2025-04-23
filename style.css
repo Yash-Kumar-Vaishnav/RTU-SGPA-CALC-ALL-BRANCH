@@ -1,61 +1,95 @@
+/* style.css */
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
   margin: 0;
   padding: 0;
-  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 900px;
-  margin: 40px auto;
-  background: #fff;
+  background-color: white;
   padding: 30px;
+  margin-top: 40px;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 700px;
 }
 
-h1, h2 {
+h1 {
   text-align: center;
-  color: #444;
+  margin-bottom: 24px;
+  color: #1f2937;
 }
 
-select, button {
+.selector {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+select {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+}
+
+.subjects {
+  margin-bottom: 20px;
+}
+
+.subjects .subject {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.subjects .subject label {
+  flex: 1;
+  color: #111827;
+}
+
+.subjects .subject select {
+  flex: 0.5;
+  padding: 8px;
+  font-size: 14px;
 }
 
 button {
-  background-color: #007bff;
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
   color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #1e40af;
 }
 
-.subject-container {
+.result {
   margin-top: 20px;
-}
-
-.subject {
-  margin-bottom: 10px;
-}
-
-.sgpa-result {
-  margin-top: 20px;
-  font-size: 1.2rem;
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
-  color: #2c3e50;
+  color: #10b981;
 }
 
 
