@@ -1,48 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SGPA Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
     <h1>SGPA Calculator</h1>
-    <form id="sgpaForm">
-      <fieldset>
-        <legend>Select Branch and Semester</legend>
 
-        <label for="branch">Select Branch:</label>
-        <select id="branch" name="branch" required>
-          <option value="">-- Select Branch --</option>
-          <option value="CSE">CSE</option>
-          <option value="ECE">ECE</option>
-          <option value="EE">EE</option>
-          <option value="ME">ME</option>
-          <option value="CE">CE</option>
-          <option value="IT">IT</option>
-        </select>
-
-        <label for="semester">Select Semester:</label>
-        <select id="semester" name="semester" required>
-          <option value="">-- Select Semester --</option>
-        </select>
-      </fieldset>
-
-      <div id="subjects" class="subjects-container"></div>
-
-      <div class="buttons">
-        <button type="button" id="calculateBtn">Calculate SGPA</button>
-        <button type="reset">Reset</button>
-      </div>
-    </form>
-
-    <div id="resultContainer">
-      <p id="result" class="result-display"></p>
+    <div class="selector">
+      <label for="branch">Select Branch:</label>
+      <select id="branch">
+        <option value="">-- Select Branch --</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+      </select>
     </div>
+
+    <div class="selector">
+      <label for="semester">Select Semester:</label>
+      <select id="semester">
+        <option value="">-- Select Semester --</option>
+        <!-- Options will be populated dynamically -->
+      </select>
+    </div>
+
+    <div id="subjects" class="subjects"></div>
+
+    <button id="calculateBtn">Calculate SGPA</button>
+    <div id="result" class="result"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
