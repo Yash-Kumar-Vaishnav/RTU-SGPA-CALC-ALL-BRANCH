@@ -1,3 +1,4 @@
+
 const subjectsData = {
   CSE: {
     "1st Semester": [
@@ -197,6 +198,16 @@ const gradePoints = {
   F: 0,
 };
 
+// 👇 Helper function to get subject data with fallback
+function getSubjects(branch, semester) {
+  const subjects = subjectsData[branch]?.[semester];
+  if (subjects === "same") {
+    return subjectsData["CSE"][semester]; // fallback to CSE data
+  }
+  return subjects;
+}
+
+// DOM elements
 const branchSelect = document.getElementById("branch");
 const semesterSelect = document.getElementById("semester");
 const subjectsDiv = document.getElementById("subjects");
@@ -206,6 +217,7 @@ const gradeOptions = `<option value="">-- Select Grade --</option>` +
     .map(([grade, point]) => `<option value="${point}">${grade}</option>`)
     .join("");
 
+// Populate semesters
 branchSelect.addEventListener("change", function () {
   semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
   const selectedBranch = branchSelect.value;
@@ -220,16 +232,16 @@ branchSelect.addEventListener("change", function () {
   }
 });
 
+// Load subjects on semester change
 semesterSelect.addEventListener("change", function () {
   const branch = branchSelect.value;
   const semester = semesterSelect.value;
-  const subjects = subjectsData[branch][semester];
+  const subjects = getSubjects(branch, semester);
 
   subjectsDiv.innerHTML = "";
 
-  if (subjects === "same") {
-    subjectsDiv.innerHTML =
-      "<p>Select same subjects and credits as 1st/2nd CSE semester</p>";
+  if (!subjects || !Array.isArray(subjects)) {
+    subjectsDiv.innerHTML = "<p>No subjects found for this combination.</p>";
     return;
   }
 
@@ -247,8 +259,9 @@ semesterSelect.addEventListener("change", function () {
   subjectsDiv.appendChild(fragment);
 });
 
+// Calculate SGPA
 document.getElementById("calculateBtn").addEventListener("click", function (e) {
-  e.preventDefault(); // 🛠️ Fix added here
+  e.preventDefault();
   const gradeSelects = document.querySelectorAll(".grade-select");
   let totalCredits = 0;
   let totalPoints = 0;
@@ -266,15 +279,16 @@ document.getElementById("calculateBtn").addEventListener("click", function (e) {
     totalPoints += credit * point;
   });
 
+  const resultDiv = document.getElementById("result");
+
   if (!allSelected) {
-    document.getElementById("result").textContent =
-      "Please select all grades before calculating.";
+    resultDiv.textContent = "Please select all grades before calculating.";
     return;
   }
 
   const sgpa = totalPoints / totalCredits;
-  document.getElementById("result").textContent =
-    "Your SGPA is: " + sgpa.toFixed(2);
+  resultDiv.textContent = "Your SGPA is: " + sgpa.toFixed(2);
 });
+
 
 
