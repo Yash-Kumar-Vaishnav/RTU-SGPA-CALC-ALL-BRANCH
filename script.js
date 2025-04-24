@@ -222,6 +222,7 @@ ECE : {
     { name: "Basic Electrical Engineering Lab", credits: 1 },
     { name: "Computer Aided Machine Drawing", credits: 1.5 },
     { name: "DECA", credits: 0.5 }
+],
   "3rd Semester": [
     { "name": "Advanced Engineering Mathematics", "credits": 3 },
     { "name": "Technical Communication / MEFA", "credits": 2 },
