@@ -196,7 +196,7 @@ ECE : {
     { "name": "Social Outreach, Discipline & Extra Curricular Activities", "credits": 0.5 }
   ]
 }
-  };
+};
  const gradePoints = {
   "A++": 10,
   "A+": 9,
