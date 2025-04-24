@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
-  CSE : {
+    CSE : {
   "1st Semester": [
     { name: "Engineering Mathematics-I", credits: 4 },
     { name: "Engineering Chemistry", credits: 4 },
@@ -194,24 +194,24 @@ ECE : {
     { "name": "Skill Development Lab", "credits": 1 },
     { "name": "Major Project", "credits": 7 },
     { "name": "Social Outreach, Discipline & Extra Curricular Activities", "credits": 0.5 }
-  ]
-}
-  };
- const gradePoints = {
-  "A++": 10,
-  "A+": 9,
-  "A": 8.5,
-  "B+": 8,
-  "B": 7.5,
-  "C+": 7,
-  "C": 6.5,
-  "D+": 6,
-  "D": 5.5,
-  "E+": 5,
-  "E": 4,
-  "F": 0
+    ]
+  }
 };
 
+  const gradePoints = {
+    "A++": 10,
+    "A+": 9,
+    "A": 8.5,
+    "B+": 8,
+    "B": 7.5,
+    "C+": 7,
+    "C": 6.5,
+    "D+": 6,
+    "D": 5.5,
+    "E+": 5,
+    "E": 4,
+    "F": 0
+  };
 
   const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
@@ -244,7 +244,7 @@ ECE : {
     if (subjectsData[selectedBranch] && subjectsData[selectedBranch][selectedSemester]) {
       subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
         const label = document.createElement("label");
-        label.textContent = ${subject.name} (${subject.credits} credits):;
+        label.textContent = `${subject.name} (${subject.credits} credits):`;
 
         const select = document.createElement("select");
         select.classList.add("grade");
@@ -281,21 +281,25 @@ ECE : {
       const grade = select.value;
       const credits = parseFloat(select.getAttribute("data-credits"));
 
-      if (grade === "") {
+      if (!grade) {
         allSelected = false;
-      } else {
-        totalCredits += credits;
-        totalPoints += credits * gradePoints[grade];
+        return;
       }
+
+      const point = gradePoints[grade];
+      totalCredits += credits;
+      totalPoints += credits * point;
     });
 
     if (!allSelected) {
-      resultDiv.textContent = "Please select a grade for every subject.";
-    } else if (totalCredits > 0) {
-      const sgpa = (totalPoints / totalCredits).toFixed(2);
-      resultDiv.textContent = Your SGPA is: ${sgpa};
-    } else {
-      resultDiv.textContent = "Something went wrong. Please try again.";
+      resultDiv.textContent = "Please select a grade for all subjects.";
+      resultDiv.style.color = "red";
+      return;
     }
+
+    const sgpa = (totalPoints / totalCredits).toFixed(2);
+    resultDiv.textContent = `Your SGPA is: ${sgpa}`;
+    resultDiv.style.color = "green";
   });
 });
+
