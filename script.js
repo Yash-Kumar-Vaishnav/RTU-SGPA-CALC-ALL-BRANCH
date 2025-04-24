@@ -84,27 +84,103 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "Internship / Industrial Training", credits: 4 }
   ]
 },
-    ME: {
-      "1st Semester": [
-        { name: "Mathematics-I", credits: 5 },
-        { name: "Engineering Physics", credits: 2 },
-        { name: "Basic Electrical Engineering", credits: 5 },
-        { name: "Engineering Graphics", credits: 5 },
-        { name: "Communication Skills", credits: 2 }
-      ],
-      "2nd Semester": [
-        { name: "Mathematics-II", credits: 4 },
-        { name: "Engineering Chemistry", credits: 4 },
-        { name: "Programming for Problem Solving", credits: 3 },
-        { name: "Basic Mechanical Engineering", credits: 3 },
-        { name: "Environmental Engineering", credits: 2 }
-             ]
-    }
-    };
-        
-  
+  ECE : {
+    "1st Semester": [
+      { "name": "Engineering Mathematics-I", "credits": 4 },
+      { "name": "Engineering Physics", "credits": 4 },
+      { "name": "Communication Skills", "credits": 2 },
+      { "name": "Programming for Problem Solving", "credits": 2 },
+      { "name": "Basic Mechanical Engineering", "credits": 2 },
+      { "name": "Basic Electrical Engineering", "credits": 2 },
+      { "name": "Engineering Physics Lab", "credits": 1 },
+      { "name": "Language Lab", "credits": 1 },
+      { "name": "Computer Programming Lab", "credits": 1.5 },
+      { "name": "Basic Electrical Engineering Lab", "credits": 1 },
+      { "name": "Computer Aided Engineering Graphics", "credits": 1.5 }
+    ],
+    "2nd Semester": [
+      { "name": "Engineering Mathematics-II", "credits": 4 },
+      { "name": "Engineering Chemistry", "credits": 4 },
+      { "name": "Human Values", "credits": 2 },
+      { "name": "Environmental Engineering & Disaster Management", "credits": 2 },
+      { "name": "Basic Civil Engineering", "credits": 2 },
+      { "name": "Engineering Chemistry Lab", "credits": 1 },
+      { "name": "Human Values Activities and Sports", "credits": 1 },
+      { "name": "Manufacturing Practices Workshop", "credits": 1.5 },
+      { "name": "Basic Civil Engineering Lab", "credits": 1 },
+      { "name": "Computer Aided Machine Drawing", "credits": 1.5 }
+    ],
+    "3rd Semester": [
+      { "name": "Mathematics-III", "credits": 4 },
+      { "name": "Electronic Devices & Circuits", "credits": 4 },
+      { "name": "Circuit Analysis & Synthesis", "credits": 4 },
+      { "name": "Electronic Measurements & Instrumentation", "credits": 4 },
+      { "name": "Electronic Materials & Processes", "credits": 4 },
+      { "name": "Data Structures & Algorithms", "credits": 4 },
+      { "name": "Electronics Workshop", "credits": 1 },
+      { "name": "Computer Programming Lab-I", "credits": 1 },
+      { "name": "Electronics Lab I", "credits": 1 },
+      { "name": "Electronic Measurement & Instrumentation Lab", "credits": 1 }
+    ],
+    "4th Semester": [
+      { "name": "Mathematics-IV", "credits": 4 },
+      { "name": "Analog Electronics", "credits": 4 },
+      { "name": "Digital Electronics", "credits": 4 },
+      { "name": "Electromagnetic Field Theory", "credits": 4 },
+      { "name": "Random Variables & Stochastic Processes", "credits": 4 },
+      { "name": "Object Oriented Programming", "credits": 4 },
+      { "name": "Computer Programming Lab-II", "credits": 1 },
+      { "name": "Electronics Lab II", "credits": 1 },
+      { "name": "Digital Electronics Lab", "credits": 1 },
+      { "name": "Humanities", "credits": 1 }
+    ],
+    "5th Semester": [
+      { "name": "Signals and Systems", "credits": 4 },
+      { "name": "Linear Integrated Circuits", "credits": 4 },
+      { "name": "Telecommunication Engineering", "credits": 4 },
+      { "name": "Analog Communication", "credits": 4 },
+      { "name": "Microwave Engineering-I", "credits": 4 },
+      { "name": "Biomedical Instrumentation", "credits": 4 },
+      { "name": "Electronic Engineering Design Lab", "credits": 1 },
+      { "name": "Microwave Engineering Lab", "credits": 1 },
+      { "name": "Communication Lab-I", "credits": 1 },
+      { "name": "Signal Processing Lab-I", "credits": 1 }
+    ],
+    "6th Semester": [
+      { "name": "Microwave Engineering-II", "credits": 4 },
+      { "name": "Microprocessor and Microcontroller", "credits": 4 },
+      { "name": "Industrial Electronics", "credits": 4 },
+      { "name": "Digital Communication", "credits": 4 },
+      { "name": "Control Systems", "credits": 4 },
+      { "name": "Neural Networks", "credits": 4 },
+      { "name": "Communication Lab-II", "credits": 1 },
+      { "name": "Microprocessor Lab", "credits": 1 },
+      { "name": "Unix Shell Programming Lab", "credits": 1 },
+      { "name": "Industrial Electronics Lab", "credits": 1 }
+    ],
+    "7th Semester": [
+      { "name": "Antenna & Wave Propagation", "credits": 4 },
+      { "name": "Digital Signal Processing", "credits": 4 },
+      { "name": "Wireless Communication", "credits": 4 },
+      { "name": "IC Technology", "credits": 4 },
+      { "name": "VLSI Design", "credits": 4 },
+      { "name": "Advanced Microprocessors", "credits": 4 },
+      { "name": "Signal Processing Lab-II", "credits": 1 },
+      { "name": "Wireless Communication Lab", "credits": 1 }
+    ],
+    "8th Semester": [
+      { "name": "Computer Networks", "credits": 4 },
+      { "name": "Radar & TV Engineering", "credits": 4 },
+      { "name": "Optical Communication", "credits": 4 },
+      { "name": "Image Processing and Pattern Recognition", "credits": 4 },
+      { "name": "Computer Network Programming Lab", "credits": 1 },
+      { "name": "Industrial Economics & Management", "credits": 1 },
+      { "name": "VLSI & Optical Fiber Lab", "credits": 1 }
+    ]
+  }
+};
 
- const gradePoints = {
+  const gradePoints = {
   "A++": 10,
   "A+": 9,
   "A": 8.5,
