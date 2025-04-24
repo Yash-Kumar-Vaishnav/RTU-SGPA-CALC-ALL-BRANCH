@@ -278,7 +278,7 @@ ECE : {
 
     gradeSelects.forEach(select => {
       const grade = select.value;
-      const credits = parseInt(select.getAttribute("data-credits"));
+      const credits = parseFloat(select.getAttribute("data-credits"));
 
       if (grade === "") {
         allSelected = false;
