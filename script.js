@@ -55,8 +55,26 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "Seminar & Technical Report Writing", credits: 2 },
         { name: "Professional Elective-IV", credits: 3 }
       ]
+    },
+    ME: {
+      "1st Semester": [
+        { name: "Mathematics-I", credits: 5 },
+        { name: "Engineering Physics", credits: 2 },
+        { name: "Basic Electrical Engineering", credits: 5 },
+        { name: "Engineering Graphics", credits: 5 },
+        { name: "Communication Skills", credits: 2 }
+      ],
+      "2nd Semester": [
+        { name: "Mathematics-II", credits: 4 },
+        { name: "Engineering Chemistry", credits: 4 },
+        { name: "Programming for Problem Solving", credits: 3 },
+        { name: "Basic Mechanical Engineering", credits: 3 },
+        { name: "Environmental Engineering", credits: 2 }
+             ]
     }
-  };
+    };
+        
+  
 
   const gradePoints = {
     A: 10,
