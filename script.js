@@ -104,14 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
         
   
 
-  const gradePoints = {
-    A: 10,
-    B: 9,
-    C: 8,
-    D: 7,
-    E: 6,
-    F: 0
-  };
+ const gradePoints = {
+  "A++": 10,
+  "A+": 9,
+  "A": 8.5,
+  "B+": 8,
+  "B": 7.5,
+  "C+": 7,
+  "C": 6.5,
+  "D+": 6,
+  "D": 5.5,
+  "E+": 5,
+  "E": 4,
+  "F": 0
+};
+
 
   const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
