@@ -1,61 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
-    CSE: {
-      "1st Semester": [
-        { name: "Mathematics-I", credits: 5 },
-        { name: "Engineering Physics", credits: 2 },
-        { name: "Basic Electrical Engineering", credits: 5 },
-        { name: "Engineering Graphics", credits: 5 },
-        { name: "Communication Skills", credits: 2 }
-      ],
-      "2nd Semester": [
-        { name: "Mathematics-II", credits: 4 },
-        { name: "Engineering Chemistry", credits: 4 },
-        { name: "Programming for Problem Solving", credits: 3 },
-        { name: "Basic Mechanical Engineering", credits: 3 },
-        { name: "Environmental Engineering", credits: 2 }
-      ],
-      "3rd Semester": [
-        { name: "Mathematics-III", credits: 4 },
-        { name: "Digital Electronics", credits: 3 },
-        { name: "Data Structures", credits: 3 },
-        { name: "Object Oriented Programming", credits: 3 },
-        { name: "Computer Organization & Architecture", credits: 3 }
-      ],
-      "4th Semester": [
-        { name: "Theory of Computation", credits: 3 },
-        { name: "Operating Systems", credits: 3 },
-        { name: "Database Management Systems", credits: 3 },
-        { name: "Software Engineering", credits: 3 },
-        { name: "Discrete Mathematics", credits: 4 }
-      ],
-      "5th Semester": [
-        { name: "Compiler Design", credits: 3 },
-        { name: "Computer Networks", credits: 3 },
-        { name: "Design & Analysis of Algorithms", credits: 3 },
-        { name: "Web Technology", credits: 3 },
-        { name: "Professional Elective-I", credits: 3 }
-      ],
-      "6th Semester": [
-        { name: "Artificial Intelligence", credits: 3 },
-        { name: "Machine Learning", credits: 3 },
-        { name: "Cloud Computing", credits: 3 },
-        { name: "Open Elective-I", credits: 3 },
-        { name: "Professional Elective-II", credits: 3 }
-      ],
-      "7th Semester": [
-        { name: "Major Project-I", credits: 4 },
-        { name: "Internet of Things", credits: 3 },
-        { name: "Open Elective-II", credits: 3 },
-        { name: "Professional Elective-III", credits: 3 },
-        { name: "Industrial Training/Internship", credits: 2 }
-      ],
-      "8th Semester": [
-        { name: "Major Project-II", credits: 6 },
-        { name: "Seminar & Technical Report Writing", credits: 2 },
-        { name: "Professional Elective-IV", credits: 3 }
-      ]
-    },
+  CSE: {
+    "1st Semester": [
+      { name: "Mathematics-I", credits: 5 },
+      { name: "Engineering Physics", credits: 2 },
+      { name: "Basic Electrical Engineering", credits: 5 },
+      { name: "Engineering Graphics", credits: 5 },
+      { name: "Communication Skills", credits: 2 }
+    ],
+    "2nd Semester": [
+      { name: "Mathematics-II", credits: 5 },
+      { name: "Engineering Chemistry", credits: 2 },
+      { name: "Basic Mechanical Engineering", credits: 5 },
+      { name: "Programming for Problem Solving", credits: 5 },
+      { name: "Environmental Science", credits: 2 }
+    ],
+    "3rd Semester": [
+      { name: "Discrete Mathematics", credits: 4 },
+      { name: "Data Structures", credits: 4 },
+      { name: "Digital Electronics", credits: 3 },
+      { name: "Object-Oriented Programming using C++", credits: 4 },
+      { name: "Computer Organization & Architecture", credits: 4 }
+    ],
+    "4th Semester": [
+      { name: "Operating Systems", credits: 4 },
+      { name: "Design and Analysis of Algorithms", credits: 4 },
+      { name: "Database Management Systems", credits: 4 },
+      { name: "Software Engineering", credits: 3 },
+      { name: "Computer Networks", credits: 4 }
+    ],
+    "5th Semester": [
+      { name: "Theory of Computation", credits: 4 },
+      { name: "Compiler Design", credits: 4 },
+      { name: "Web Technology", credits: 4 },
+      { name: "Artificial Intelligence", credits: 4 },
+      { name: "Professional Elective – I", credits: 3 }
+    ],
+    "6th Semester": [
+      { name: "Machine Learning", credits: 4 },
+      { name: "Internet of Things (IoT)", credits: 4 },
+      { name: "Mobile Application Development", credits: 4 },
+      { name: "Professional Elective – II", credits: 3 },
+      { name: "Open Elective – I", credits: 3 }
+    ],
+    "7th Semester": [
+      { name: "Major Project Phase - I", credits: 3 },
+      { name: "Seminar", credits: 1 },
+      { name: "Professional Elective – III", credits: 3 },
+      { name: "Professional Elective – IV", credits: 3 },
+      { name: "Open Elective – II", credits: 3 },
+      { name: "Industrial Internship", credits: 3 }
+    ],
+    "8th Semester": [
+      { name: "Major Project Phase - II", credits: 6 },
+      { name: "Comprehensive Viva-Voce", credits: 1 },
+      { name: "Professional Elective – V", credits: 3 },
+      { name: "Open Elective – III", credits: 3 }
+    ]
+  },
     ME: {
       "1st Semester": [
         { name: "Mathematics-I", credits: 5 },
