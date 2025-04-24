@@ -2,27 +2,58 @@ document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
     CSE: {
       "1st Semester": [
-        { name: "Maths", credits: 4 },
-        { name: "Physics", credits: 4 },
-        { name: "BEE", credits: 3},
-        { name: "EE", credits: 3}
+        { name: "Mathematics-I", credits: 4 },
+        { name: "Engineering Physics", credits: 4 },
+        { name: "Basic Electrical Engineering", credits: 3 },
+        { name: "Engineering Graphics", credits: 3 },
+        { name: "Communication Skills", credits: 2 }
       ],
       "2nd Semester": [
-        { name: "Maths-II", credits: 4 },
-        { name: "Chemistry", credits: 4 },
-        { name: "Engineering Mechanics", credits: 3 }
-      ]
-    },
-    ECE: {
-      "1st Semester": [
-        { name: "Basic Electronics", credits: 4 },
-        { name: "Maths", credits: 4 },
-        { name: "BEE", credits: 3 }
+        { name: "Mathematics-II", credits: 4 },
+        { name: "Engineering Chemistry", credits: 4 },
+        { name: "Programming for Problem Solving", credits: 3 },
+        { name: "Basic Mechanical Engineering", credits: 3 },
+        { name: "Environmental Engineering", credits: 2 }
       ],
-      "2nd Semester": [
-        { name: "Digital Logic", credits: 4 },
-        { name: "Signals & Systems", credits: 4 },
-        { name: "Maths-II", credits: 4 }
+      "3rd Semester": [
+        { name: "Mathematics-III", credits: 4 },
+        { name: "Digital Electronics", credits: 3 },
+        { name: "Data Structures", credits: 3 },
+        { name: "Object Oriented Programming", credits: 3 },
+        { name: "Computer Organization & Architecture", credits: 3 }
+      ],
+      "4th Semester": [
+        { name: "Theory of Computation", credits: 3 },
+        { name: "Operating Systems", credits: 3 },
+        { name: "Database Management Systems", credits: 3 },
+        { name: "Software Engineering", credits: 3 },
+        { name: "Discrete Mathematics", credits: 4 }
+      ],
+      "5th Semester": [
+        { name: "Compiler Design", credits: 3 },
+        { name: "Computer Networks", credits: 3 },
+        { name: "Design & Analysis of Algorithms", credits: 3 },
+        { name: "Web Technology", credits: 3 },
+        { name: "Professional Elective-I", credits: 3 }
+      ],
+      "6th Semester": [
+        { name: "Artificial Intelligence", credits: 3 },
+        { name: "Machine Learning", credits: 3 },
+        { name: "Cloud Computing", credits: 3 },
+        { name: "Open Elective-I", credits: 3 },
+        { name: "Professional Elective-II", credits: 3 }
+      ],
+      "7th Semester": [
+        { name: "Major Project-I", credits: 4 },
+        { name: "Internet of Things", credits: 3 },
+        { name: "Open Elective-II", credits: 3 },
+        { name: "Professional Elective-III", credits: 3 },
+        { name: "Industrial Training/Internship", credits: 2 }
+      ],
+      "8th Semester": [
+        { name: "Major Project-II", credits: 6 },
+        { name: "Seminar & Technical Report Writing", credits: 2 },
+        { name: "Professional Elective-IV", credits: 3 }
       ]
     }
   };
@@ -65,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resultDiv.textContent = "";
 
     if (subjectsData[selectedBranch] && subjectsData[selectedBranch][selectedSemester]) {
-      subjectsData[selectedBranch][selectedSemester].forEach((subject, index) => {
+      subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
         const label = document.createElement("label");
         label.textContent = `${subject.name} (${subject.credits} credits):`;
 
@@ -76,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const defaultOption = document.createElement("option");
         defaultOption.value = "";
         defaultOption.textContent = "-- Grade --";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
         select.appendChild(defaultOption);
 
         for (const grade in gradePoints) {
@@ -87,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         subjectsDiv.appendChild(label);
         subjectsDiv.appendChild(select);
+        subjectsDiv.appendChild(document.createElement("br"));
       });
     }
   });
@@ -95,22 +129,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const gradeSelects = document.querySelectorAll(".grade");
     let totalCredits = 0;
     let totalPoints = 0;
+    let allSelected = true;
 
     gradeSelects.forEach(select => {
       const grade = select.value;
       const credits = parseInt(select.getAttribute("data-credits"));
 
-      if (grade in gradePoints) {
+      if (grade === "") {
+        allSelected = false;
+      } else {
         totalCredits += credits;
         totalPoints += credits * gradePoints[grade];
       }
     });
 
-    if (totalCredits > 0) {
+    if (!allSelected) {
+      resultDiv.textContent = "Please select a grade for every subject.";
+    } else if (totalCredits > 0) {
       const sgpa = (totalPoints / totalCredits).toFixed(2);
       resultDiv.textContent = `Your SGPA is: ${sgpa}`;
     } else {
-      resultDiv.textContent = "Please select valid grades.";
+      resultDiv.textContent = "Something went wrong. Please try again.";
     }
   });
 });
+
