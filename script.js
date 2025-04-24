@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
     CSE: {
       "1st Semester": [
-        { name: "Mathematics-I", credits: 4 },
-        { name: "Engineering Physics", credits: 4 },
-        { name: "Basic Electrical Engineering", credits: 3 },
-        { name: "Engineering Graphics", credits: 3 },
+        { name: "Mathematics-I", credits: 5 },
+        { name: "Engineering Physics", credits: 2 },
+        { name: "Basic Electrical Engineering", credits: 5 },
+        { name: "Engineering Graphics", credits: 5 },
         { name: "Communication Skills", credits: 2 }
       ],
       "2nd Semester": [
