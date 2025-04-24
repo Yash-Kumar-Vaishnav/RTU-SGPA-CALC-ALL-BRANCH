@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "1st Semester": [
         { name: "Maths", credits: 4 },
         { name: "Physics", credits: 4 },
-        { name: "BEE", credits: 3 }
+        { name: "BEE", credits: 3},
+        { name: "EE", credits: 3}
       ],
       "2nd Semester": [
         { name: "Maths-II", credits: 4 },
