@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
   CSE : {
@@ -299,4 +300,3 @@ ECE : {
     }
   });
 });
-
