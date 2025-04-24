@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
-  CSE = {
+  CSE : {
   "1st Semester": [
     { name: "Engineering Mathematics-I", credits: 4 },
     { name: "Engineering Chemistry", credits: 4 },
