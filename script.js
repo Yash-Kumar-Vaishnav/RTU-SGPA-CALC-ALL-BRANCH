@@ -504,7 +504,113 @@ AIDS: {
     { "name": "Major Project", "credits": 7 },
     { "name": "Social Outreach, Discipline & Extra Curricular Activities", "credits": 0.5 }
    ]
- }
+ },
+    CIVIL: {
+      "1st Semester": [
+      { "name": "Engineering Mathematics-I", "credits": 4 },
+      { "name": "Engineering Physics", "credits": 4 },
+      { "name": "Communication Skills", "credits": 2 },
+      { "name": "Programming for Problem Solving", "credits": 2 },
+      { "name": "Basic Mechanical Engineering", "credits": 2 },
+      { "name": "Basic Electrical Engineering", "credits": 2 },
+      { "name": "Engineering Physics Lab", "credits": 1 },
+      { "name": "Language Lab", "credits": 1 },
+      { "name": "Computer Programming Lab", "credits": 1.5 },
+      { "name": "Basic Electrical Engineering Lab", "credits": 1 },
+      { "name": "Computer Aided Engineering Graphics", "credits": 1.5 }
+    ],
+    "2nd Semester": [
+      { "name": "Engineering Mathematics-II", "credits": 4 },
+      { "name": "Engineering Chemistry", "credits": 4 },
+      { "name": "Human Values", "credits": 2 },
+      { "name": "Environmental Engineering & Disaster Management", "credits": 2 },
+      { "name": "Basic Civil Engineering", "credits": 2 },
+      { "name": "Engineering Chemistry Lab", "credits": 1 },
+      { "name": "Human Values Activities and Sports", "credits": 1 },
+      { "name": "Manufacturing Practices Workshop", "credits": 1.5 },
+      { "name": "Basic Civil Engineering Lab", "credits": 1 },
+      { "name": "Computer Aided Machine Drawing", "credits": 1.5 }
+    ],
+  "3rd Semester": [
+    { "name": "Advance Engineering Mathematics - I", "credits": 3 },
+    { "name": "Technical Communication / Managerial Economics & Financial Accounting", "credits": 2 },
+    { "name": "Engineering Mechanics", "credits": 2 },
+    { "name": "Surveying", "credits": 3 },
+    { "name": "Fluid Mechanics", "credits": 2 },
+    { "name": "Building Materials and Construction", "credits": 3 },
+    { "name": "Engineering Geology", "credits": 2 },
+    { "name": "Surveying Lab", "credits": 1.5 },
+    { "name": "Fluid Mechanics Lab", "credits": 1 },
+    { "name": "Computer Aided Civil Engineering Drawing", "credits": 1.5 },
+    { "name": "Civil Engineering Materials Lab", "credits": 1 },
+    { "name": "Geology Lab", "credits": 1 },
+    { "name": "Industrial Training", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "4th Semester": [
+    { "name": "Advance Engineering Mathematics - II", "credits": 2 },
+    { "name": "Managerial Economics & Financial Accounting / Technical Communication", "credits": 2 },
+    { "name": "Basic Electronics for Civil Engineering Applications", "credits": 2 },
+    { "name": "Strength of Materials", "credits": 3 },
+    { "name": "Hydraulics Engineering", "credits": 3 },
+    { "name": "Building Planning", "credits": 2 },
+    { "name": "Concrete Technology", "credits": 3 },
+    { "name": "Material Testing Lab", "credits": 1 },
+    { "name": "Hydraulics Engineering Lab", "credits": 1 },
+    { "name": "Building Drawing", "credits": 1.5 },
+    { "name": "Advanced Surveying Lab", "credits": 1 },
+    { "name": "Concrete Lab", "credits": 1.5 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "5th Semester": [
+    { "name": "Construction Technology & Equipments", "credits": 2 },
+    { "name": "Structural Analysis - I", "credits": 2 },
+    { "name": "Design of Concrete Structures", "credits": 3 },
+    { "name": "Geotechnical Engineering", "credits": 3 },
+    { "name": "Water Resource Engineering", "credits": 2 },
+    { "name": "Departmental Elective - I", "credits": 2 },
+    { "name": "Departmental Elective - II", "credits": 2 },
+    { "name": "Concrete Structures Design Lab", "credits": 1.5 },
+    { "name": "Geotechnical Engineering Lab", "credits": 1.5 },
+    { "name": "Water Resource Engineering Design", "credits": 1 },
+    { "name": "Industrial Training", "credits": 2.5 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "6th Semester": [
+    { "name": "Wind & Seismic Analysis", "credits": 2 },
+    { "name": "Structural Analysis - II", "credits": 3 },
+    { "name": "Environmental Engineering", "credits": 3 },
+    { "name": "Design of Steel Structures", "credits": 3 },
+    { "name": "Estimating & Costing", "credits": 2 },
+    { "name": "Departmental Elective - III", "credits": 2 },
+    { "name": "Departmental Elective - IV", "credits": 2 },
+    { "name": "Environmental Engineering Design and Lab", "credits": 1.5 },
+    { "name": "Steel Structure Design Lab", "credits": 1.5 },
+    { "name": "Quantity Surveying and Valuation Lab", "credits": 1 },
+    { "name": "Water and Earth Retaining Structures Design Lab", "credits": 1 },
+    { "name": "Foundation Design Lab", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "7th Semester": [
+    { "name": "Transportation Engineering", "credits": 3 },
+    { "name": "Open Elective - I", "credits": 3 },
+    { "name": "Road Material Testing Lab", "credits": 1 },
+    { "name": "Professional Practices & Field Engineering Lab", "credits": 1 },
+    { "name": "Soft Skills Lab", "credits": 1 },
+    { "name": "Environmental Monitoring and Design Lab", "credits": 1 },
+    { "name": "Practical Training", "credits": 2.5 },
+    { "name": "Seminar", "credits": 2 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "8th Semester": [
+    { "name": "Project Planning and Construction Management", "credits": 3 },
+    { "name": "Open Elective - II", "credits": 3 },
+    { "name": "Project Planning and Construction Management Lab", "credits": 1 },
+    { "name": "Pavement Design Lab", "credits": 1 },
+    { "name": "Project", "credits": 7 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ]
+}
 };
 
   const gradePoints = {
