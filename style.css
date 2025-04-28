@@ -14,7 +14,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   position: relative; /* important for positioning logo */
-  overflow: hidden;
+  
 }
 
 .logo {
