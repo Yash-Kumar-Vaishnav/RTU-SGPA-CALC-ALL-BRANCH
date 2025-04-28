@@ -197,6 +197,32 @@ ECE : {
     ]
   },
 AIDS: {
+ "1st Semester": [
+    { name: "Engineering Mathematics-I", credits: 4 },
+    { name: "Engineering Chemistry", credits: 4 },
+    { name: "Human Values", credits: 2 },
+    { name: "Programming for Problem Solving", credits: 2 },
+    { name: "Basic Civil Engineering", credits: 2 },
+    { name: "Engineering Chemistry Lab", credits: 1 },
+    { name: "Human Values Activities", credits: 1 },
+    { name: "Computer Programming Lab", credits: 1.5 },
+    { name: "Basic Civil Engineering Lab", credits: 1 },
+    { name: "Computer Aided Engineering Graphics", credits: 1.5 },
+    { name: "DECA", credits: 0.5 }
+  ],
+  "2nd Semester": [
+    { name: "Engineering Mathematics-II", credits: 4 },
+    { name: "Engineering Physics", credits: 4 },
+    { name: "Communication Skills", credits: 2 },
+    { name: "Basic Mechanical Engineering", credits: 2 },
+    { name: "Basic Electrical Engineering", credits: 2 },
+    { name: "Engineering Physics Lab", credits: 1 },
+    { name: "Language Lab", credits: 1 },
+    { name: "Manufacturing Practices Workshop", credits: 1.5 },
+    { name: "Basic Electrical Engineering Lab", credits: 1 },
+    { name: "Computer Aided Machine Drawing", credits: 1.5 },
+    { name: "DECA", credits: 0.5 }
+  ],
   "3rd Semester": [
     { "name": "Advanced Engineering Mathematics", "credits": 3 },
     { "name": "Technical Communication / Managerial Economics and Financial Accounting", "credits": 2 },
