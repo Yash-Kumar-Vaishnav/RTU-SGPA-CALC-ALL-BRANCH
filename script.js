@@ -815,4 +815,23 @@ AIDS: {
     resultDiv.style.color = "green";
   });
 });
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+// Check if dark mode is already enabled
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+  darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener('change', () => {
+  if (darkModeToggle.checked) {
+    document.body.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }
+});
+
 
