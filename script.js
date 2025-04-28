@@ -101,6 +101,107 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "Disaster Management", credits: 3 }
   ]
 },
+    CS_AI: {
+    "1st Semester": [
+    { name: "Engineering Mathematics-I", credits: 4 },
+    { name: "Engineering Chemistry", credits: 4 },
+    { name: "Human Values", credits: 2 },
+    { name: "Programming for Problem Solving", credits: 2 },
+    { name: "Basic Civil Engineering", credits: 2 },
+    { name: "Engineering Chemistry Lab", credits: 1 },
+    { name: "Human Values Activities", credits: 1 },
+    { name: "Computer Programming Lab", credits: 1.5 },
+    { name: "Basic Civil Engineering Lab", credits: 1 },
+    { name: "Computer Aided Engineering Graphics", credits: 1.5 },
+    { name: "DECA", credits: 0.5 }
+  ],
+  "2nd Semester": [
+    { name: "Engineering Mathematics-II", credits: 4 },
+    { name: "Engineering Physics", credits: 4 },
+    { name: "Communication Skills", credits: 2 },
+    { name: "Basic Mechanical Engineering", credits: 2 },
+    { name: "Basic Electrical Engineering", credits: 2 },
+    { name: "Engineering Physics Lab", credits: 1 },
+    { name: "Language Lab", credits: 1 },
+    { name: "Manufacturing Practices Workshop", credits: 1.5 },
+    { name: "Basic Electrical Engineering Lab", credits: 1 },
+    { name: "Computer Aided Machine Drawing", credits: 1.5 },
+    { name: "DECA", credits: 0.5 }
+  ],
+  "3rd Semester": [
+    { "name": "Advanced Engineering Mathematics", "credits": 3 },
+    { "name": "Technical Communication / Managerial Economics and Financial Accounting", "credits": 2 },
+    { "name": "Digital Electronics", "credits": 3 },
+    { "name": "Data Structures and Algorithms", "credits": 3 },
+    { "name": "Object Oriented Programming", "credits": 3 },
+    { "name": "Software Engineering", "credits": 3 },
+    { "name": "Data Structures and Algorithms Lab", "credits": 1.5 },
+    { "name": "Object Oriented Programming Lab", "credits": 1.5 },
+    { "name": "Software Engineering Lab", "credits": 1.5 },
+    { "name": "Digital Electronics Lab", "credits": 1.5 },
+    { "name": "Industrial Training", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "4th Semester": [
+    { "name": "Discrete Mathematics Structure", "credits": 3 },
+    { "name": "Managerial Economics and Financial Accounting / Technical Communication", "credits": 2 },
+    { "name": "Microprocessor & Interfaces", "credits": 3 },
+    { "name": "Database Management System", "credits": 3 },
+    { "name": "Theory of Computation", "credits": 3 },
+    { "name": "Data Communication and Computer Networks", "credits": 3 },
+    { "name": "Microprocessor & Interfaces Lab", "credits": 1 },
+    { "name": "Database Management System Lab", "credits": 1.5 },
+    { "name": "Network Programming Lab", "credits": 1.5 },
+    { "name": "Linux Shell Programming Lab", "credits": 1 },
+    { "name": "Java Lab", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "5th Semester": [
+    { "name": "Data Mining - Concepts and Techniques", "credits": 2 },
+    { "name": "Compiler Design", "credits": 3 },
+    { "name": "Operating System", "credits": 3 },
+    { "name": "Computer Graphics & Multimedia", "credits": 3 },
+    { "name": "Analysis of Algorithm", "credits": 3 },
+    { "name": "Professional Elective - I", "credits": 2 },
+    { "name": "Computer Graphics & Multimedia Lab", "credits": 1 },
+    { "name": "Compiler Design Lab", "credits": 1 },
+    { "name": "Analysis of Algorithm Lab", "credits": 1 },
+    { "name": "Advanced Java Lab", "credits": 1 },
+    { "name": "Industrial Training", "credits": 2.5 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "6th Semester": [
+    { "name": "Digital Image Processing", "credits": 2 },
+    { "name": "Machine Learning", "credits": 3 },
+    { "name": "Information Security Systems", "credits": 2 },
+    { "name": "Computer Architecture and Organization", "credits": 3 },
+    { "name": "Principles of Artificial Intelligence", "credits": 2 },
+    { "name": "Cloud Computing", "credits": 3 },
+    { "name": "Professional Elective - II", "credits": 2 },
+    { "name": "Digital Image Processing Lab", "credits": 1.5 },
+    { "name": "Machine Learning Lab", "credits": 1.5 },
+    { "name": "Python Lab", "credits": 1.5 },
+    { "name": "Mobile Application Development Lab", "credits": 1.5 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "7th Semester": [
+    { "name": "Deep Learning and Its Applications", "credits": 3 },
+    { "name": "Open Elective - I", "credits": 3 },
+    { "name": "Deep Learning and Its Application Lab", "credits": 2 },
+    { "name": "Computer Vision Lab", "credits": 2 },
+    { "name": "Industrial Training", "credits": 2.5 },
+    { "name": "Seminar", "credits": 2 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "8th Semester": [
+    { "name": "Big Data Analytics", "credits": 3 },
+    { "name": "Open Elective - II", "credits": 3 },
+    { "name": "Big Data Analytics Lab", "credits": 1 },
+    { "name": "Robot Programming Lab", "credits": 1 },
+    { "name": "Project", "credits": 7 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ]
+},
 ECE : {
     "1st Semester": [
       { "name": "Engineering Mathematics-I", "credits": 4 },
