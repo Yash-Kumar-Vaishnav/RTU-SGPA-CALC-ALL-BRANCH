@@ -23,6 +23,13 @@ body {
   width: 80px; /* logo size */
   height: auto;
 }
+.logo2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px; /* logo size */
+  height: auto;
+}
 
 .container {
   background: #ffffff;
