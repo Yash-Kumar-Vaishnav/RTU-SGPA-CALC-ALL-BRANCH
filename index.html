@@ -4,17 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RTU SGPA Calculator</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- JECRC Logo -->
-  <img src="Jecrc.png" alt="JECRC Logo" class="logo">
-  <img src="RTU.png" alt="RTU Logo" class="logo2">
-
-
-  <div class="container">
+  <!-- Header Section -->
+  <header class="header">
+    <img src="Jecrc.png" alt="JECRC Logo" class="logo">
     <h1>RTU SGPA Calculator</h1>
+    <img src="RTU.png" alt="RTU Logo" class="logo2">
+  </header>
+
+  <!-- Dark Mode Toggle -->
+  <div class="dark-mode-toggle">
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle">
+      <span class="slider round"></span>
+    </label>
+    <span class="toggle-text">Dark Mode</span>
+  </div>
+
+  <main class="container">
 
     <!-- Branch Selection -->
     <div class="selector">
@@ -28,8 +43,6 @@
         <option value="CS_AI">CS_AI</option>
         <option value="CIVIL">CIVIL</option>
         <option value="EE">EE</option>
-
-        <!-- Aage aur branches bhi add kar sakte ho -->
       </select>
     </div>
 
@@ -45,12 +58,18 @@
     <div id="subjects" class="subjects"></div>
 
     <!-- Calculate Button -->
-    <button id="calculateBtn">Calculate SGPA</button>
+    <button id="calculateBtn" class="btn">Calculate SGPA</button>
 
     <!-- SGPA Result -->
     <div id="result" class="result"></div>
-  </div>
+  </main>
 
+  <!-- Footer -->
+  <footer class="footer">
+    Made with ❤️ by Yash Vaishnav
+  </footer>
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
