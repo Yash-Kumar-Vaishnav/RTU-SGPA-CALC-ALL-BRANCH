@@ -297,6 +297,104 @@ ECE : {
     { "name": "Social Outreach, Discipline & Extra Curricular Activities", "credits": 0.5 }
     ]
   },
+    EE: {
+     "1st Semester": [
+      { "name": "Engineering Mathematics-I", "credits": 4 },
+      { "name": "Engineering Physics", "credits": 4 },
+      { "name": "Communication Skills", "credits": 2 },
+      { "name": "Programming for Problem Solving", "credits": 2 },
+      { "name": "Basic Mechanical Engineering", "credits": 2 },
+      { "name": "Basic Electrical Engineering", "credits": 2 },
+      { "name": "Engineering Physics Lab", "credits": 1 },
+      { "name": "Language Lab", "credits": 1 },
+      { "name": "Computer Programming Lab", "credits": 1.5 },
+      { "name": "Basic Electrical Engineering Lab", "credits": 1 },
+      { "name": "Computer Aided Engineering Graphics", "credits": 1.5 }
+    ],
+    "2nd Semester": [
+      { "name": "Engineering Mathematics-II", "credits": 4 },
+      { "name": "Engineering Chemistry", "credits": 4 },
+      { "name": "Human Values", "credits": 2 },
+      { "name": "Environmental Engineering & Disaster Management", "credits": 2 },
+      { "name": "Basic Civil Engineering", "credits": 2 },
+      { "name": "Engineering Chemistry Lab", "credits": 1 },
+      { "name": "Human Values Activities and Sports", "credits": 1 },
+      { "name": "Manufacturing Practices Workshop", "credits": 1.5 },
+      { "name": "Basic Civil Engineering Lab", "credits": 1 },
+      { "name": "Computer Aided Machine Drawing", "credits": 1.5 }
+    ],
+  "3rd Semester": [
+    { "name": "Advance Mathematics", "credits": 3 },
+    { "name": "Technical Communication / Managerial Economics and Financial Accounting", "credits": 2 },
+    { "name": "Power Generation Process", "credits": 2 },
+    { "name": "Electrical Circuit Analysis", "credits": 3 },
+    { "name": "Analog Electronics", "credits": 3 },
+    { "name": "Electrical Machine - I", "credits": 3 },
+    { "name": "Electromagnetic Field", "credits": 2 },
+    { "name": "Analog Electronics Lab", "credits": 1 },
+    { "name": "Electrical Machine-I Lab", "credits": 2 },
+    { "name": "Electrical Circuit Design Lab", "credits": 2 },
+    { "name": "Industrial Training", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "4th Semester": [
+    { "name": "Biology", "credits": 2 },
+    { "name": "Technical Communication / Managerial Economics and Financial Accounting", "credits": 2 },
+    { "name": "Electronic Measurement & Instrumentation", "credits": 2 },
+    { "name": "Electrical Machine - II", "credits": 3 },
+    { "name": "Power Electronics", "credits": 3 },
+    { "name": "Signals & Systems", "credits": 3 },
+    { "name": "Digital Electronics", "credits": 2 },
+    { "name": "Electrical Machine - II Lab", "credits": 2 },
+    { "name": "Power Electronics Lab", "credits": 2 },
+    { "name": "Digital Electronics Lab", "credits": 1 },
+    { "name": "Measurement Lab", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "5th Semester": [
+    { "name": "Electrical Materials", "credits": 2 },
+    { "name": "Power System - I", "credits": 3 },
+    { "name": "Control System", "credits": 3 },
+    { "name": "Microprocessor", "credits": 3 },
+    { "name": "Electrical Machine Design", "credits": 3 },
+    { "name": "Professional Elective - I", "credits": 2 },
+    { "name": "Power System - I Lab", "credits": 1 },
+    { "name": "Control System Lab", "credits": 1 },
+    { "name": "Microprocessor Lab", "credits": 1 },
+    { "name": "System Programming Lab", "credits": 1 },
+    { "name": "Industrial Training", "credits": 2.5 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "6th Semester": [
+    { "name": "Computer Architecture", "credits": 2 },
+    { "name": "Power System - II", "credits": 3 },
+    { "name": "Power System Protection", "credits": 3 },
+    { "name": "Electrical Energy Conversion and Auditing", "credits": 3 },
+    { "name": "Electric Drives", "credits": 3 },
+    { "name": "Professional Elective - II", "credits": 3 },
+    { "name": "Power System - II Lab", "credits": 2 },
+    { "name": "Electric Drives Lab", "credits": 2 },
+    { "name": "Power System Protection Lab", "credits": 1 },
+    { "name": "Modeling and Simulation Lab", "credits": 1 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "7th Semester": [
+    { "name": "Professional Elective - III", "credits": 3 },
+    { "name": "Open Elective - I", "credits": 3 },
+    { "name": "Embedded Systems Lab", "credits": 2 },
+    { "name": "Advance Control System Lab", "credits": 2 },
+    { "name": "Industrial Training", "credits": 2.5 },
+    { "name": "Seminar", "credits": 2 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ],
+  "8th Semester": [
+    { "name": "Professional Elective - IV", "credits": 3 },
+    { "name": "Open Elective - II", "credits": 3 },
+    { "name": "Energy Systems Lab", "credits": 2 },
+    { "name": "Project", "credits": 7 },
+    { "name": "Social Outreach, Discipline & Extra Curricular Activities (SODECA)", "credits": 0.5 }
+  ]
+},
 AIDS: {
  "1st Semester": [
     { name: "Engineering Mathematics-I", credits: 4 },
