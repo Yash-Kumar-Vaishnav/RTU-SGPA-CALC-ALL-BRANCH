@@ -726,7 +726,7 @@ AIDS: {
     "F": 0
   };
 
-  const branchSelect = document.getElementById("branch");
+const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
   const subjectsDiv = document.getElementById("subjects");
   const resultDiv = document.getElementById("result");
@@ -756,6 +756,10 @@ AIDS: {
 
     if (subjectsData[selectedBranch] && subjectsData[selectedBranch][selectedSemester]) {
       subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
+        // Create a wrapper div for each subject (with 'selector' class)
+        const wrapper = document.createElement("div");
+        wrapper.className = "selector"; // Add the 'selector' class to match CSS
+
         const label = document.createElement("label");
         label.textContent = `${subject.name} (${subject.credits} credits):`;
 
@@ -777,9 +781,12 @@ AIDS: {
           select.appendChild(option);
         }
 
-        subjectsDiv.appendChild(label);
-        subjectsDiv.appendChild(select);
-        subjectsDiv.appendChild(document.createElement("br"));
+        // Append the label and select dropdown inside the wrapper div
+        wrapper.appendChild(label);
+        wrapper.appendChild(select);
+
+        // Finally, append the wrapper to the subjectsDiv
+        subjectsDiv.appendChild(wrapper);
       });
     }
   });
@@ -815,6 +822,5 @@ AIDS: {
     resultDiv.style.color = "green";
   });
 });
-
 
 
