@@ -726,6 +726,31 @@ AIDS: {
     "E": 4,
     "F": 0
   };
+  
+function animateSGPA(finalValue) {
+  const resultElement = document.getElementById("sgpaResult");
+  let current = 0.00;
+  const duration = 1000; // total time for animation in ms
+  const steps = 60; // number of animation steps
+  const increment = finalValue / steps;
+  const stepTime = duration / steps;
+
+  resultElement.style.color = "#333";
+  resultElement.textContent = "Calculating...";
+
+  let counter = setInterval(() => {
+    current += increment;
+    if (current >= finalValue) {
+      current = finalValue;
+      clearInterval(counter);
+      // ✅ Bonus tip – show green color and emoji on complete
+      resultElement.style.color = "#28a745";
+      resultElement.textContent = `Your SGPA: ${current.toFixed(2)} ✅`;
+    } else {
+      resultElement.textContent = `Your SGPA: ${current.toFixed(2)}`;
+    }
+  }, stepTime);
+}
 
   const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
@@ -811,8 +836,8 @@ AIDS: {
       return;
     }
 
-    const sgpa = (totalPoints / totalCredits).toFixed(2);
-    resultDiv.textContent = `Your SGPA is: ${sgpa}`;
+    const sgpa = (totalPoints / totalCredits);
+    animateSGPA(sgpa);
     resultDiv.style.color = "green";
   });
 });
