@@ -729,7 +729,7 @@ const gradePoints = {
     function animateSGPA(finalValue) {
         const resultElement = document.getElementById("sgpaResult");
         let current = 0.00;
-        const duration = 1000; // total time for animation in ms
+        const duration = 2000; // total time for animation in ms
         const steps = 60; // number of animation steps
         const increment = finalValue / steps;
         const stepTime = duration / steps;
