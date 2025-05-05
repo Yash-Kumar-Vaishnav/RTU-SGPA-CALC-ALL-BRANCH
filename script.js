@@ -836,6 +836,7 @@ function animateSGPA(finalValue) {
       return;
     }
 
+    const resultElement = document.getElementById("sgpaResult");
     const sgpa = (totalPoints / totalCredits);
     animateSGPA(sgpa);
     resultDiv.style.color = "green";
