@@ -711,132 +711,131 @@ AIDS: {
   ]
 }
 };
+const gradePoints = {
+        "A++": 10,
+        "A+": 9,
+        "A": 8.5,
+        "B+": 8,
+        "B": 7.5,
+        "C+": 7,
+        "C": 6.5,
+        "D+": 6,
+        "D": 5.5,
+        "E+": 5,
+        "E": 4,
+        "F": 0
+    };
 
-  const gradePoints = {
-    "A++": 10,
-    "A+": 9,
-    "A": 8.5,
-    "B+": 8,
-    "B": 7.5,
-    "C+": 7,
-    "C": 6.5,
-    "D+": 6,
-    "D": 5.5,
-    "E+": 5,
-    "E": 4,
-    "F": 0
-  };
-  
-function animateSGPA(finalValue) {
-  const resultElement = document.getElementById("sgpaResult");
-  let current = 0.00;
-  const duration = 1000; // total time for animation in ms
-  const steps = 60; // number of animation steps
-  const increment = finalValue / steps;
-  const stepTime = duration / steps;
+    function animateSGPA(finalValue) {
+        const resultElement = document.getElementById("sgpaResult");
+        let current = 0.00;
+        const duration = 1000; // total time for animation in ms
+        const steps = 60; // number of animation steps
+        const increment = finalValue / steps;
+        const stepTime = duration / steps;
 
-  resultElement.style.color = "#333";
-  resultElement.textContent = "Calculating...";
+        resultElement.style.color = "#333";
+        resultElement.textContent = "Calculating...";
 
-  let counter = setInterval(() => {
-    current += increment;
-    if (current >= finalValue) {
-      current = finalValue;
-      clearInterval(counter);
-      // ✅ Bonus tip – show green color and emoji on complete
-      resultElement.style.color = "#28a745";
-      resultElement.textContent = `Your SGPA: ${current.toFixed(2)} ✅`;
-    } else {
-      resultElement.textContent = `Your SGPA: ${current.toFixed(2)}`;
+        let counter = setInterval(() => {
+            current += increment;
+            if (current >= finalValue) {
+                current = finalValue;
+                clearInterval(counter);
+                resultElement.style.color = "#28a745";
+                resultElement.textContent = `Your SGPA: ${current.toFixed(2)} ✅`;
+            } else {
+                resultElement.textContent = `Your SGPA: ${current.toFixed(2)}`;
+            }
+        }, stepTime);
     }
-  }, stepTime);
-}
 
-  const branchSelect = document.getElementById("branch");
-  const semesterSelect = document.getElementById("semester");
-  const subjectsDiv = document.getElementById("subjects");
-  const resultDiv = document.getElementById("sgpaResult");
-  const calculateBtn = document.getElementById("calculateBtn");
+    const branchSelect = document.getElementById("branch");
+    const semesterSelect = document.getElementById("semester");
+    const subjectsDiv = document.getElementById("subjects");
+    const resultDiv = document.getElementById("sgpaResult");
+    const calculateBtn = document.getElementById("calculateBtn");
 
-  branchSelect.addEventListener("change", function () {
-    const selectedBranch = branchSelect.value;
-    semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
-    subjectsDiv.innerHTML = "";
-    resultDiv.textContent = "";
+    branchSelect.addEventListener("change", function () {
+        const selectedBranch = branchSelect.value;
+        semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
+        subjectsDiv.innerHTML = "";
+        resultDiv.textContent = "";
 
-    if (subjectsData[selectedBranch]) {
-      for (const sem in subjectsData[selectedBranch]) {
-        const option = document.createElement("option");
-        option.value = sem;
-        option.textContent = sem;
-        semesterSelect.appendChild(option);
-      }
-    }
-  });
-
-  semesterSelect.addEventListener("change", function () {
-    const selectedBranch = branchSelect.value;
-    const selectedSemester = semesterSelect.value;
-    subjectsDiv.innerHTML = "";
-    resultDiv.textContent = "";
-
-    if (subjectsData[selectedBranch] && subjectsData[selectedBranch][selectedSemester]) {
-      subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
-        const label = document.createElement("label");
-        label.textContent = `${subject.name} (${subject.credits} credits):`;
-
-        const select = document.createElement("select");
-        select.classList.add("grade");
-        select.setAttribute("data-credits", subject.credits);
-
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.textContent = "-- Grade --";
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        select.appendChild(defaultOption);
-
-        for (const grade in gradePoints) {
-          const option = document.createElement("option");
-          option.value = grade;
-          option.textContent = grade;
-          select.appendChild(option);
+        if (subjectsData[selectedBranch]) {
+            for (const sem in subjectsData[selectedBranch]) {
+                const option = document.createElement("option");
+                option.value = sem;
+                option.textContent = sem;
+                semesterSelect.appendChild(option);
+            }
         }
-
-        subjectsDiv.appendChild(label);
-        subjectsDiv.appendChild(select);
-        subjectsDiv.appendChild(document.createElement("br"));
-      });
-    }
-  });
-
-  calculateBtn.addEventListener("click", function () {
-    const gradeSelects = document.querySelectorAll(".grade");
-    let totalCredits = 0;
-    let totalPoints = 0;
-    let allSelected = true;
-
-    gradeSelects.forEach(select => {
-      const grade = select.value;
-      const credits = parseFloat(select.getAttribute("data-credits"));
-
-      if (!grade) {
-        allSelected = false;
-        return;
-      }
-
-      const point = gradePoints[grade];
-      totalCredits += credits;
-      totalPoints += credits * point;
     });
 
-    if (!allSelected) {
-      resultDiv.textContent = "Please select a grade for all subjects.";
-      resultDiv.style.color = "red";
-      return;
-    }
-    const sgpa = (totalPoints / totalCredits);
-    animateSGPA(sgpa);
-    resultDiv.style.color = "green";
-  });
+    semesterSelect.addEventListener("change", function () {
+        const selectedBranch = branchSelect.value;
+        const selectedSemester = semesterSelect.value;
+        subjectsDiv.innerHTML = "";
+        resultDiv.textContent = "";
+
+        if (subjectsData[selectedBranch] && subjectsData[selectedBranch][selectedSemester]) {
+            subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
+                const label = document.createElement("label");
+                label.textContent = `${subject.name} (${subject.credits} credits):`;
+
+                const select = document.createElement("select");
+                select.classList.add("grade");
+                select.setAttribute("data-credits", subject.credits);
+
+                const defaultOption = document.createElement("option");
+                defaultOption.value = "";
+                defaultOption.textContent = "-- Grade --";
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                select.appendChild(defaultOption);
+
+                for (const grade in gradePoints) {
+                    const option = document.createElement("option");
+                    option.value = grade;
+                    option.textContent = grade;
+                    select.appendChild(option);
+                }
+
+                subjectsDiv.appendChild(label);
+                subjectsDiv.appendChild(select);
+                subjectsDiv.appendChild(document.createElement("br"));
+            });
+        }
+    });
+
+    calculateBtn.addEventListener("click", function () {
+        const gradeSelects = document.querySelectorAll(".grade");
+        let totalCredits = 0;
+        let totalPoints = 0;
+        let allSelected = true;
+
+        gradeSelects.forEach(select => {
+            const grade = select.value;
+            const credits = parseFloat(select.getAttribute("data-credits"));
+
+            if (!grade) {
+                allSelected = false;
+                return;
+            }
+
+            const point = gradePoints[grade];
+            totalCredits += credits;
+            totalPoints += credits * point;
+        });
+
+        if (!allSelected) {
+            resultDiv.textContent = "Please select a grade for all subjects.";
+            resultDiv.style.color = "red";
+            return;
+        }
+
+        const sgpa = (totalPoints / totalCredits);
+        animateSGPA(sgpa);
+        resultDiv.style.color = "green";
+    });
 });
