@@ -755,7 +755,7 @@ function animateSGPA(finalValue) {
   const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
   const subjectsDiv = document.getElementById("subjects");
-  const resultDiv = document.getElementById("result");
+  const resultDiv = document.getElementById("sgpaResult");
   const calculateBtn = document.getElementById("calculateBtn");
 
   branchSelect.addEventListener("change", function () {
