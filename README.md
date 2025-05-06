@@ -18,7 +18,7 @@ A fast, accurate, and mobile-friendly **SGPA Calculator** built specifically for
 
 ---
 
-##🎯 How to Use
+## 🎯 How to Use
 
 1. Select your **branch** (e.g., CSE, ECE).
 2. Choose your **semester** (1st to 8th).
