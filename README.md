@@ -26,3 +26,21 @@ A fast, accurate, and mobile-friendly **SGPA Calculator** built specifically for
 4. Click **Calculate SGPA** to get your result instantly.
 
 ---
+
+## 🔒 License
+
+This project is for **educational use only**. Do not redistribute or use parts of the code without permission.  
+**All Rights Reserved © Yash Kumar Vaishnav**
+
+---
+
+## 📬 Contact
+
+For feedback, suggestions or collaboration:   
+🔗 [LinkedIn](www.linkedin.com/in/yash-kumar-vaishnav-48b062220)
+
+---
+
+## 🔍 Tags (For SEO)
+
+`RTU SGPA Calculator`, `Rajasthan Technical University`, `JECRC`, `Engineering GPA`, `RTU GPA Tool`, `Semester Grade Calculator`, `RTU Marks to SGPA`, `CSE ECE IT CIVIL AIDS EE GPA`
