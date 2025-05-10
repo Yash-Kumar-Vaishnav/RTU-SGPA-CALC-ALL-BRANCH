@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
@@ -119,6 +118,20 @@ button:active {
   text-align: center;
   color: #28a745;
   transition: opacity 0.3s ease-in-out;
+}
+
+/* Fade-In Animation for Result */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* 🔽 Responsive Design for Mobile Screens */
