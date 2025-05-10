@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
@@ -88,12 +89,6 @@ select:focus {
   box-shadow: 0 4px 12px rgba(37, 117, 252, 0.3);
 }
 
-/* CGPA input and visibility */
-#cgpaInput {
-  display: none;
-}
-
-/* Button */
 button {
   width: 100%;
   padding: 15px;
@@ -124,17 +119,6 @@ button:active {
   text-align: center;
   color: #28a745;
   transition: opacity 0.3s ease-in-out;
-}
-
-#error {
-  color: red;
-  text-align: center;
-  font-size: 16px;
-}
-
-/* Show CGPA input when CGPA is selected */
-#cgpaInput {
-  display: block;
 }
 
 /* 🔽 Responsive Design for Mobile Screens */
