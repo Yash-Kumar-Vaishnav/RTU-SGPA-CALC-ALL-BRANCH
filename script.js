@@ -742,213 +742,256 @@ AIDS: {
         }
     };
 
-    const gradePoints = {
-        "A++": 10,
-        "A+": 9,
-        "A": 8.5,
-        "B+": 8,
-        "B": 7.5,
-        "C+": 7,
-        "C": 6.5,
-        "D+": 6,
-        "D": 5.5,
-        "E+": 5,
-        "E": 4,
-        "F": 0
-    };
+   document.addEventListener("DOMContentLoaded", function () {
+  const subjectsData = {
+    CSE: {
+      "1st Semester": [
+        { name: "Engineering Mathematics-I", credits: 4 },
+        { name: "Engineering Chemistry", credits: 4 },
+        { name: "Human Values", credits: 2 },
+        { name: "Programming for Problem Solving", credits: 2 },
+        { name: "Basic Civil Engineering", credits: 2 },
+        { name: "Engineering Chemistry Lab", credits: 1 },
+        { name: "Human Values Activities", credits: 1 },
+        { name: "Computer Programming Lab", credits: 1.5 },
+        { name: "Basic Civil Engineering Lab", credits: 1 },
+        { name: "Computer Aided Engineering Graphics", credits: 1.5 },
+        { name: "DECA", credits: 0.5 }
+      ],
+      "2nd Semester": [
+        { name: "Engineering Mathematics-II", credits: 4 },
+        { name: "Engineering Physics", credits: 4 },
+        { name: "Communication Skills", credits: 2 },
+        { name: "Basic Mechanical Engineering", credits: 2 },
+        { name: "Basic Electrical Engineering", credits: 2 },
+        { name: "Engineering Physics Lab", credits: 1 },
+        { name: "Language Lab", credits: 1 },
+        { name: "Manufacturing Practices Workshop", credits: 1.5 },
+        { name: "Basic Electrical Engineering Lab", credits: 1 },
+        { name: "Computer Aided Machine Drawing", credits: 1.5 },
+        { name: "DECA", credits: 0.5 }
+      ],
+      "3rd Semester": [
+        { name: "Advanced Engineering Mathematics", credits: 3 },
+        { name: "Managerial Economics & Financial Accounting", credits: 2 },
+        { name: "Digital Electronics", credits: 3 },
+        { name: "Data Structures and Algorithms", credits: 3 },
+        { name: "Object Oriented Programming", credits: 3 },
+        { name: "Software Engineering", credits: 3 },
+        { name: "Data Structures and Algorithms Lab", credits: 1.5 },
+        { name: "Object Oriented Programming Lab", credits: 1.5 },
+        { name: "Software Engineering Lab", credits: 1.5 },
+        { name: "Digital Electronics Lab", credits: 1.5 },
+        { name: "Industrial Training", credits: 1 },
+        { name: "Social Outreach, Discipline & Extracurricular Activities", credits: 0.5 }
+      ]
+    }
+  };
 
-    // Specific credits for each semester (same across all branches)
-    const semesterCredits = {
-        "1st Semester": 20.5,
-        "2nd Semester": 20.5,
-        "3rd Semester": 21,
-        "4th Semester": 21,
-        "5th Semester": 21.5,
-        "6th Semester": 21.5,
-        "7th Semester": 22,
-        "8th Semester": 22
-    };
+  const gradePoints = {
+    "A++": 10, "A+": 9, "A": 8.5, "B+": 8, "B": 7.5, "C+": 7,
+    "C": 6.5, "D+": 6, "D": 5.5, "E+": 5, "E": 4, "F": 0
+  };
 
-    function animateResult(text, color = "#28a745") {
-        const resultElement = document.getElementById("sgpaResult");
-        resultElement.style.color = color;
-        resultElement.textContent = text;
-        resultElement.classList.add("fade-in");
+  const semesterCredits = {
+    "1st Semester": 20.5, "2nd Semester": 20.5,
+    "3rd Semester": 21, "4th Semester": 21,
+    "5th Semester": 21.5, "6th Semester": 21.5,
+    "7th Semester": 22, "8th Semester": 22
+  };
 
-        setTimeout(() => {
-            resultElement.classList.remove("fade-in");
-        }, 1000);
+  const getOrdinal = (n) => {
+    if (n === 1) return "1st";
+    if (n === 2) return "2nd";
+    if (n === 3) return "3rd";
+    return `${n}th`;
+  };
+
+  function animateResult(text, color = "#28a745") {
+    const resultElement = document.getElementById("sgpaResult");
+    resultElement.style.color = color;
+    resultElement.textContent = text;
+    resultElement.classList.add("fade-in");
+
+    setTimeout(() => {
+      resultElement.classList.remove("fade-in");
+    }, 1000);
+  }
+
+  const calcTypeSelect = document.getElementById("calcType");
+  const branchSelect = document.getElementById("branch");
+  const semesterSelect = document.getElementById("semester");
+  const subjectsDiv = document.getElementById("subjects");
+  const resultDiv = document.getElementById("sgpaResult");
+  const calculateBtn = document.getElementById("calculateBtn");
+  const branchSelector = document.getElementById("branchSelector");
+  const semesterSelector = document.getElementById("semesterSelector");
+  const cgpaInputsDiv = document.getElementById("cgpaInputs");
+
+  calcTypeSelect.addEventListener("change", function () {
+    const selectedType = calcTypeSelect.value;
+    resultDiv.textContent = "";
+    subjectsDiv.innerHTML = "";
+    semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
+    cgpaInputsDiv.innerHTML = "";
+
+    if (selectedType === "SGPA") {
+      branchSelector.style.display = "block";
+      semesterSelector.style.display = "block";
+      subjectsDiv.style.display = "block";
+      cgpaInputsDiv.style.display = "none";
+      calculateBtn.textContent = "Calculate SGPA";
+    } else if (selectedType === "CGPA") {
+      branchSelector.style.display = "block";
+      semesterSelector.style.display = "none";
+      subjectsDiv.style.display = "none";
+      cgpaInputsDiv.style.display = "block";
+      calculateBtn.textContent = "Calculate CGPA";
+    } else {
+      branchSelector.style.display = "none";
+      semesterSelector.style.display = "none";
+      subjectsDiv.style.display = "none";
+      cgpaInputsDiv.style.display = "none";
+    }
+  });
+
+  branchSelect.addEventListener("change", function () {
+    const selectedBranch = branchSelect.value;
+    const selectedType = calcTypeSelect.value;
+    semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
+    subjectsDiv.innerHTML = "";
+    resultDiv.textContent = "";
+
+    if (!subjectsData[selectedBranch]) {
+      animateResult("No data available for this branch.", "red");
+      return;
     }
 
-    const calcTypeSelect = document.getElementById("calcType");
-    const branchSelect = document.getElementById("branch");
-    const semesterSelect = document.getElementById("semester");
-    const subjectsDiv = document.getElementById("subjects");
-    const resultDiv = document.getElementById("sgpaResult");
-    const calculateBtn = document.getElementById("calculateBtn");
-    const branchSelector = document.getElementById("branchSelector");
-    const semesterSelector = document.getElementById("semesterSelector");
-    const cgpaInputsDiv = document.getElementById("cgpaInputs");
+    if (selectedType === "SGPA") {
+      for (const sem in subjectsData[selectedBranch]) {
+        const option = document.createElement("option");
+        option.value = sem;
+        option.textContent = sem;
+        semesterSelect.appendChild(option);
+      }
+    } else if (selectedType === "CGPA") {
+      cgpaInputsDiv.innerHTML = "";
+      for (let i = 1; i <= 8; i++) {
+        const sem = `${getOrdinal(i)} Semester`;
+        const label = document.createElement("label");
+        label.textContent = `${sem} SGPA: `;
 
-    calcTypeSelect.addEventListener("change", function () {
-        const selectedType = calcTypeSelect.value;
-        resultDiv.textContent = "";
-        subjectsDiv.innerHTML = "";
-        semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
-        cgpaInputsDiv.innerHTML = "";
+        const input = document.createElement("input");
+        input.type = "number";
+        input.step = "0.01";
+        input.min = "0";
+        input.max = "10";
+        input.dataset.sem = sem;
+        input.dataset.credits = semesterCredits[sem];
+        input.required = true;
 
-        if (selectedType === "SGPA") {
-            branchSelector.style.display = "block";
-            semesterSelector.style.display = "block";
-            subjectsDiv.style.display = "block";
-            cgpaInputsDiv.style.display = "none";
-            calculateBtn.textContent = "Calculate SGPA";
-        } else if (selectedType === "CGPA") {
-            branchSelector.style.display = "block";
-            semesterSelector.style.display = "none";
-            subjectsDiv.style.display = "none";
-            cgpaInputsDiv.style.display = "block";
-            calculateBtn.textContent = "Calculate CGPA";
-        } else {
-            branchSelector.style.display = "none";
-            semesterSelector.style.display = "none";
-            subjectsDiv.style.display = "none";
-            cgpaInputsDiv.style.display = "none";
-        }
-    });
+        cgpaInputsDiv.appendChild(label);
+        cgpaInputsDiv.appendChild(input);
+        cgpaInputsDiv.appendChild(document.createElement("br"));
+      }
+    }
+  });
 
-    branchSelect.addEventListener("change", function () {
-        const selectedBranch = branchSelect.value;
-        const selectedType = calcTypeSelect.value;
-        semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
-        subjectsDiv.innerHTML = "";
-        resultDiv.textContent = "";
+  semesterSelect.addEventListener("change", function () {
+    const selectedBranch = branchSelect.value;
+    const selectedSemester = semesterSelect.value;
+    subjectsDiv.innerHTML = "";
+    resultDiv.textContent = "";
 
-        if (selectedType === "SGPA") {
-            for (const sem in subjectsData[selectedBranch]) {
-                const option = document.createElement("option");
-                option.value = sem;
-                option.textContent = sem;
-                semesterSelect.appendChild(option);
-            }
-        } else if (selectedType === "CGPA") {
-            cgpaInputsDiv.innerHTML = "";
-            for (let i = 1; i <= 8; i++) {
-                const sem = `${i}th Semester`;
-                const label = document.createElement("label");
-                label.textContent = `${sem} SGPA: `;
+    if (
+      subjectsData[selectedBranch] &&
+      subjectsData[selectedBranch][selectedSemester]
+    ) {
+      subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
+        const label = document.createElement("label");
+        label.textContent = `${subject.name} (${subject.credits} credits):`;
 
-                const input = document.createElement("input");
-                input.type = "number";
-                input.step = "0.01";
-                input.min = "0";
-                input.max = "10";
-                input.dataset.sem = sem;
-                input.dataset.credits = semesterCredits[sem];
-                input.required = true;
+        const select = document.createElement("select");
+        select.classList.add("grade");
+        select.setAttribute("data-credits", subject.credits);
 
-                cgpaInputsDiv.appendChild(label);
-                cgpaInputsDiv.appendChild(input);
-                cgpaInputsDiv.appendChild(document.createElement("br"));
-            }
-        }
-    });
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = "-- Grade --";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        select.appendChild(defaultOption);
 
-    semesterSelect.addEventListener("change", function () {
-        const selectedBranch = branchSelect.value;
-        const selectedSemester = semesterSelect.value;
-        subjectsDiv.innerHTML = "";
-        resultDiv.textContent = "";
-
-        if (subjectsData[selectedBranch] && subjectsData[selectedBranch][selectedSemester]) {
-            subjectsData[selectedBranch][selectedSemester].forEach((subject) => {
-                const label = document.createElement("label");
-                label.textContent = `${subject.name} (${subject.credits} credits):`;
-
-                const select = document.createElement("select");
-                select.classList.add("grade");
-                select.setAttribute("data-credits", subject.credits);
-
-                const defaultOption = document.createElement("option");
-                defaultOption.value = "";
-                defaultOption.textContent = "-- Grade --";
-                defaultOption.disabled = true;
-                defaultOption.selected = true;
-                select.appendChild(defaultOption);
-
-                for (const grade in gradePoints) {
-                    const option = document.createElement("option");
-                    option.value = grade;
-                    option.textContent = grade;
-                    select.appendChild(option);
-                }
-
-                subjectsDiv.appendChild(label);
-                subjectsDiv.appendChild(select);
-                subjectsDiv.appendChild(document.createElement("br"));
-            });
-        }
-    });
-
-    calculateBtn.addEventListener("click", function () {
-        const selectedType = calcTypeSelect.value;
-
-        if (selectedType === "SGPA") {
-            const gradeSelects = document.querySelectorAll(".grade");
-            let totalCredits = 0;
-            let totalPoints = 0;
-            let allSelected = true;
-
-            gradeSelects.forEach(select => {
-                const grade = select.value;
-                const credits = parseFloat(select.getAttribute("data-credits"));
-
-                if (!grade) {
-                    allSelected = false;
-                    return;
-                }
-
-                const point = gradePoints[grade];
-                totalCredits += credits;
-                totalPoints += credits * point;
-            });
-
-            if (!allSelected) {
-                animateResult("Please select a grade for all subjects.", "red");
-                return;
-            }
-
-            const sgpa = (totalPoints / totalCredits);
-            animateResult(`Your SGPA: ${sgpa.toFixed(2)} ✅`);
+        for (const grade in gradePoints) {
+          const option = document.createElement("option");
+          option.value = grade;
+          option.textContent = grade;
+          select.appendChild(option);
         }
 
-        else if (selectedType === "CGPA") {
-            const sgpaInputs = cgpaInputsDiv.querySelectorAll("input");
-            let totalPoints = 0;
-            let totalCredits = 0;
-            let allFilled = true;
+        subjectsDiv.appendChild(label);
+        subjectsDiv.appendChild(select);
+        subjectsDiv.appendChild(document.createElement("br"));
+      });
+    }
+  });
 
-            sgpaInputs.forEach(input => {
-                const value = parseFloat(input.value);
-                const credits = parseFloat(input.dataset.credits);
+  calculateBtn.addEventListener("click", function () {
+    const selectedType = calcTypeSelect.value;
 
-                if (isNaN(value)) {
-                    allFilled = false;
-                    return;
-                }
+    if (selectedType === "SGPA") {
+      const gradeSelects = document.querySelectorAll(".grade");
+      let totalCredits = 0;
+      let totalPoints = 0;
+      let allSelected = true;
 
-                totalCredits += credits;
-                totalPoints += value * credits;
-            });
+      gradeSelects.forEach((select) => {
+        const grade = select.value;
+        const credits = parseFloat(select.getAttribute("data-credits"));
 
-            if (!allFilled || totalCredits === 0) {
-                animateResult("Please fill SGPA for all semesters shown.", "red");
-                return;
-            }
-
-            const cgpa = totalPoints / totalCredits;
-            animateResult(`Your CGPA: ${cgpa.toFixed(2)} 🎓`);
+        if (!grade) {
+          allSelected = false;
+          return;
         }
-    });
+
+        const point = gradePoints[grade];
+        totalCredits += credits;
+        totalPoints += credits * point;
+      });
+
+      if (!allSelected) {
+        animateResult("Please select a grade for all subjects.", "red");
+        return;
+      }
+
+      const sgpa = totalPoints / totalCredits;
+      animateResult(`Your SGPA: ${sgpa.toFixed(2)} ✅`);
+    } else if (selectedType === "CGPA") {
+      const sgpaInputs = cgpaInputsDiv.querySelectorAll("input");
+      let totalPoints = 0;
+      let totalCredits = 0;
+      let allFilled = true;
+
+      sgpaInputs.forEach((input) => {
+        const value = parseFloat(input.value);
+        const credits = parseFloat(input.dataset.credits);
+
+        if (isNaN(value)) {
+          allFilled = false;
+          return;
+        }
+
+        totalCredits += credits;
+        totalPoints += value * credits;
+      });
+
+      if (!allFilled || totalCredits === 0) {
+        animateResult("Please fill SGPA for all semesters shown.", "red");
+        return;
+      }
+
+      const cgpa = totalPoints / totalCredits;
+      animateResult(`Your CGPA: ${cgpa.toFixed(2)} 🎓`);
+    }
+  });
 });
-
