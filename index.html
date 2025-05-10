@@ -14,18 +14,28 @@
   <meta property="og:title" content="RTU SGPA Calculator - All Semesters & Branches" />
   <meta property="og:description" content="Fast and accurate SGPA Calculator for RTU students. Supports all branches and semesters." />
   <meta property="og:url" content="https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/" />
-  <meta property="og:type" content="website" /> <!-- Fixed here -->
+  <meta property="og:type" content="website" />
   
   <!-- ✅ Favicon (optional) -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <!-- ✅ Stylesheet -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ Initial UI hiding to avoid JS flicker -->
+  <style>
+    #branchSelector,
+    #semesterSelector,
+    #subjects,
+    #cgpaInputs {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- JECRC Logo -->
+  <!-- JECRC and RTU Logos -->
   <img src="Jecrc.png" alt="JECRC Logo" class="logo">
   <img src="RTU.png" alt="RTU Logo" class="logo2">
 
@@ -42,7 +52,7 @@
       </select>
     </div>
 
-    <!-- ✅ Branch Selection (used for both SGPA & CGPA) -->
+    <!-- ✅ Branch Selection -->
     <div class="selector" id="branchSelector">
       <label for="branch">Select Branch:</label>
       <select id="branch">
@@ -57,7 +67,7 @@
       </select>
     </div>
 
-    <!-- ✅ Semester Selection (only visible for SGPA) -->
+    <!-- ✅ Semester Selection -->
     <div class="selector" id="semesterSelector">
       <label for="semester">Select Semester:</label>
       <select id="semester">
@@ -68,8 +78,8 @@
     <!-- ✅ Subjects & Grade Selection (SGPA only) -->
     <div id="subjects" class="subjects"></div>
 
-    <!-- ✅ CGPA Input Fields (only shown if CGPA is selected) -->
-    <div id="cgpaInputs" style="display: none;"></div>
+    <!-- ✅ CGPA Input Fields (CGPA only) -->
+    <div id="cgpaInputs"></div>
 
     <!-- ✅ Calculate Button -->
     <button id="calculateBtn">Calculate</button>
@@ -77,6 +87,12 @@
     <!-- ✅ Result Display -->
     <div id="sgpaResult" class="result"></div>
   </div>
+
+  <!-- ✅ Footer -->
+  <footer style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #666;">
+    Made with ❤️ by Yash Kumar Vaishnav |
+    <a href="https://github.com/yashvaishnav19" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
 
   <script src="script.js"></script>
 </body>
