@@ -780,6 +780,26 @@ AIDS: {
             resultElement.classList.remove("fade-in");
         }, 1000);
     }
+function populateSemesters() {
+    const semesters = [1, 2, 3, 4, 5, 6, 7, 8];
+    semesters.forEach(semester => {
+        semesterSelect.innerHTML += `<option value="${semester}">Semester ${semester}</option>`;
+    });
+}
+function generateCgpaInputs() {
+    cgpaInputsDiv.innerHTML = `<label>Enter SGPA for each semester you want to include:</label>`;
+    for (let i = 1; i <= 8; i++) {
+        const input = document.createElement("input");
+        input.type = "number";
+        input.step = "0.01";
+        input.min = "0";
+        input.max = "10";
+        input.placeholder = `Semester ${i} SGPA`;
+        input.classList.add("sgpaInput");
+        cgpaInputsDiv.appendChild(input);
+    }
+}
+
 
     const calcTypeSelect = document.getElementById("calcType");
     const branchSelect = document.getElementById("branch");
@@ -792,31 +812,34 @@ AIDS: {
     const cgpaInputsDiv = document.getElementById("cgpaInputs");
 
     calcTypeSelect.addEventListener("change", function () {
-        const selectedType = calcTypeSelect.value;
-        resultDiv.textContent = "";
-        subjectsDiv.innerHTML = "";
-        semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>";
-        cgpaInputsDiv.innerHTML = "";
+    const selectedType = calcTypeSelect.value;
+    resultDiv.textContent = ""; // Clear previous result
+    subjectsDiv.innerHTML = ""; // Clear subjects div
+    semesterSelect.innerHTML = "<option value=''>-- Select Semester --</option>"; // Clear semester options
+    cgpaInputsDiv.innerHTML = ""; // Clear CGPA input fields
 
-        if (selectedType === "SGPA") {
-            branchSelector.style.display = "block";
-            semesterSelector.style.display = "block";
-            subjectsDiv.style.display = "block";
-            cgpaInputsDiv.style.display = "none";
-            calculateBtn.textContent = "Calculate SGPA";
-        } else if (selectedType === "CGPA") {
-            branchSelector.style.display = "block";
-            semesterSelector.style.display = "none";
-            subjectsDiv.style.display = "none";
-            cgpaInputsDiv.style.display = "block";
-            calculateBtn.textContent = "Calculate CGPA";
-        } else {
-            branchSelector.style.display = "none";
-            semesterSelector.style.display = "none";
-            subjectsDiv.style.display = "none";
-            cgpaInputsDiv.style.display = "none";
-        }
-    });
+    if (selectedType === "SGPA") {
+        branchSelector.style.display = "block"; // Show branch selector
+        semesterSelector.style.display = "block"; // Show semester selector
+        subjectsDiv.style.display = "block"; // Show subjects div
+        cgpaInputsDiv.style.display = "none"; // Hide CGPA inputs div
+        calculateBtn.textContent = "Calculate SGPA"; // Change button text to SGPA
+        populateSemesters(); // Call a function to populate semesters
+    } else if (selectedType === "CGPA") {
+        branchSelector.style.display = "block"; // Show branch selector
+        semesterSelector.style.display = "none"; // Hide semester selector
+        subjectsDiv.style.display = "none"; // Hide subjects div
+        cgpaInputsDiv.style.display = "block"; // Show CGPA input fields
+        calculateBtn.textContent = "Calculate CGPA"; // Change button text to CGPA
+        generateCgpaInputs(); // Generate CGPA input fields
+    } else {
+        branchSelector.style.display = "none"; // Hide all elements if no type is selected
+        semesterSelector.style.display = "none";
+        subjectsDiv.style.display = "none";
+        cgpaInputsDiv.style.display = "none";
+    }
+});
+
 
     branchSelect.addEventListener("change", function () {
         const selectedBranch = branchSelect.value;
