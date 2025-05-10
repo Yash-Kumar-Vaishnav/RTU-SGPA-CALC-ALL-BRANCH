@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
@@ -12,7 +13,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   min-height: 100vh;
   position: relative;
 }
@@ -40,7 +40,6 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 500px;
-  margin-top: 100px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -122,6 +121,7 @@ button:active {
   transition: opacity 0.3s ease-in-out;
 }
 
+/* Fade-In Animation for Result */
 .fade-in {
   animation: fadeIn 1s ease-in-out;
 }
@@ -135,26 +135,11 @@ button:active {
   }
 }
 
-/* ✅ Footer Styling */
-footer {
-  margin-top: 30px;
-  padding: 10px;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #fff;
-}
-
-footer a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* 🔽 Responsive Design */
+/* 🔽 Responsive Design for Mobile Screens */
 @media (max-width: 500px) {
   .container {
     padding: 25px 20px;
     border-radius: 16px;
-    margin-top: 120px;
   }
 
   h1 {
