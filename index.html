@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
   
   <!-- ✅ Social Media (Open Graph) Tags -->
   <meta property="og:title" content="RTU SGPA Calculator - All Semesters & Branches" />
-  <meta property="og:description" content="Fast and accurate SGPA Calculator for RTU students. Supports all branches and semesters." />
+  <meta property="og:description" content="Fast and accurate SGPA Calculator for RTU students. Supports all branches and semesters." />v
   <meta property="og:url" content="https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/" />
   <meta property="og:type" content="https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/" />
 
@@ -32,17 +33,8 @@
   <div class="container">
     <h1>RTU SGPA Calculator</h1>
 
-    <!-- Type Selection: SGPA or CGPA -->
-    <div class="selector">
-      <label for="calculateType">Select Calculation Type:</label>
-      <select id="calculateType">
-        <option value="SGPA">SGPA</option>
-        <option value="CGPA">CGPA</option>
-      </select>
-    </div>
-
     <!-- Branch Selection -->
-    <div class="selector" id="branchSelector">
+    <div class="selector">
       <label for="branch">Select Branch:</label>
       <select id="branch">
         <option value="">-- Select Branch --</option>
@@ -57,28 +49,21 @@
     </div>
 
     <!-- Semester Selection -->
-    <div class="selector" id="semesterSelector">
+    <div class="selector">
       <label for="semester">Select Semester:</label>
       <select id="semester">
         <option value="">-- Select Semester --</option>
       </select>
     </div>
 
-    <!-- SGPA/CGPA Inputs for SGPA Calculation -->
+    <!-- Subjects & Grade Selection -->
     <div id="subjects" class="subjects"></div>
 
-    <!-- SGPA and CGPA Result -->
-    <div id="sgpaResult" class="result"></div>
-    <div id="cgpaResult" class="result" style="display:none;"></div>
-
-    <!-- CGPA Input: Enter SGPA for each semester -->
-    <div id="cgpaInput" style="display:none;">
-      <label for="semestersInput">Enter SGPA for each semester (comma separated):</label>
-      <input type="text" id="semestersInput" placeholder="e.g., 8.2, 7.5, 8.0">
-    </div>
-
     <!-- Calculate Button -->
-    <button id="calculateBtn">Calculate</button>
+    <button id="calculateBtn">Calculate SGPA</button>
+
+    <!-- SGPA Result -->
+    <div id="sgpaResult" class="result"></div>
   </div>
 
   <script src="script.js"></script>
