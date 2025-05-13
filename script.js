@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const subjectsData = {
     CSE : {
@@ -712,6 +710,30 @@ AIDS: {
   ]
 }
 };
+const creditsPerSemester = {
+    CSE: {
+        "1st Semester": 20,
+        "2nd Semester": 22,
+        "3rd Semester": 20,
+        "4th Semester": 22,
+        "5th Semester": 20,
+        "6th Semester": 22,
+        "7th Semester": 20,
+        "8th Semester": 22
+    },
+    ECE: {
+        "1st Semester": 20,
+        "2nd Semester": 22,
+        "3rd Semester": 20,
+        "4th Semester": 22,
+        "5th Semester": 20,
+        "6th Semester": 22,
+        "7th Semester": 20,
+        "8th Semester": 22
+    }
+    // Add credits for other branches similarly
+};
+
 const gradePoints = {
     "A++": 10,
     "A+": 9,
@@ -727,7 +749,7 @@ const gradePoints = {
     "F": 0
   };
 
-  function animateSGPA(finalValue) {
+function animateSGPA(finalValue) {
     const resultElement = document.getElementById("sgpaResult");
     let current = 0.00;
     const duration = 2000;
@@ -750,36 +772,37 @@ const gradePoints = {
       }
     }, stepTime);
   }
-function animateCGPA(finalValue) {
-  const resultElement = document.getElementById("cgpaResult");
-  let current = 0.00;
-  const duration = 2000;
-  const steps = 60;
-  const increment = finalValue / steps;
-  const stepTime = duration / steps;
 
-  resultElement.style.color = "#333";
-  resultElement.textContent = "Calculating...";
+  function animateCGPA(finalValue) {
+    const resultElement = document.getElementById("cgpaResult");
+    let current = 0.00;
+    const duration = 2000;
+    const steps = 60;
+    const increment = finalValue / steps;
+    const stepTime = duration / steps;
 
-  let counter = setInterval(() => {
-    current += increment;
-    if (current >= finalValue) {
-      current = finalValue;
-      clearInterval(counter);
-      resultElement.style.color = "#007bff"; // blue
-      resultElement.textContent = `Your CGPA: ${current.toFixed(2)} 🎓`;
-    } else {
-      resultElement.textContent = `Your CGPA: ${current.toFixed(2)}`;
-    }
-  }, stepTime);
-}
+    resultElement.style.color = "#333";
+    resultElement.textContent = "Calculating...";
 
+    let counter = setInterval(() => {
+      current += increment;
+      if (current >= finalValue) {
+        current = finalValue;
+        clearInterval(counter);
+        resultElement.style.color = "#007bff"; // blue
+        resultElement.textContent = `Your CGPA: ${current.toFixed(2)} 🎓`;
+      } else {
+        resultElement.textContent = `Your CGPA: ${current.toFixed(2)}`;
+      }
+    }, stepTime);
+  }
 
   const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
   const subjectsDiv = document.getElementById("subjects");
   const resultDiv = document.getElementById("sgpaResult");
   const calculateBtn = document.getElementById("calculateBtn");
+  const calcTypeSelect = document.getElementById("calcType"); // dropdown for SGPA/CGPA selection
 
   branchSelect.addEventListener("change", function () {
     const selectedBranch = branchSelect.value;
@@ -833,62 +856,72 @@ function animateCGPA(finalValue) {
     }
   });
 
+  // Calculate button logic for both SGPA and CGPA
   calculateBtn.addEventListener("click", function () {
-    const gradeSelects = document.querySelectorAll(".grade");
-    let totalCredits = 0;
-    let totalPoints = 0;
-    let allSelected = true;
+    const calcType = calcTypeSelect.value;
 
-    gradeSelects.forEach(select => {
-      const grade = select.value;
-      const credits = parseFloat(select.getAttribute("data-credits"));
+    if (calcType === "sgpa") {
+      const gradeSelects = document.querySelectorAll(".grade");
+      let totalCredits = 0;
+      let totalPoints = 0;
+      let allSelected = true;
 
-      if (!grade) {
-        allSelected = false;
+      gradeSelects.forEach(select => {
+        const grade = select.value;
+        const credits = parseFloat(select.getAttribute("data-credits"));
+
+        if (!grade) {
+          allSelected = false;
+          return;
+        }
+
+        const point = gradePoints[grade];
+        totalCredits += credits;
+        totalPoints += credits * point;
+      });
+
+      if (!allSelected) {
+        resultDiv.textContent = "Please select a grade for all subjects.";
+        resultDiv.style.color = "red";
         return;
       }
 
-      const point = gradePoints[grade];
-      totalCredits += credits;
-      totalPoints += credits * point;
-    });
+      const sgpa = (totalPoints / totalCredits);
+      animateSGPA(sgpa);
+      resultDiv.style.color = "green";
+    } else if (calcType === "cgpa") {
+      const semesterInputs = prompt("Enter the SGPAs for the semesters you want to calculate CGPA for, separated by commas").split(',');
 
-    if (!allSelected) {
-      resultDiv.textContent = "Please select a grade for all subjects.";
-      resultDiv.style.color = "red";
-      return;
+      const selectedBranch = branchSelect.value;
+      let cgpaCredits = 0;
+      let cgpaPoints = 0;
+      let validInputs = true;
+
+      semesterInputs.forEach((input, index) => {
+        const semester = (index + 1) + "th Semester"; // Or get from input
+        const sgpaInput = parseFloat(input);
+        if (isNaN(sgpaInput)) {
+          validInputs = false;
+          return;
+        }
+
+        const semesterCredits = creditsPerSemester[selectedBranch][semester];
+        cgpaCredits += semesterCredits;
+        cgpaPoints += sgpaInput * semesterCredits;
+      });
+
+      if (!validInputs) {
+        resultDiv.textContent = "Invalid SGPA input.";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      const cgpa = cgpaPoints / cgpaCredits;
+      animateCGPA(cgpa);
     }
-
-    const sgpa = (totalPoints / totalCredits);
-    animateSGPA(sgpa);
-    resultDiv.style.color = "green";
   });
 
-  // ✅ CGPA Logic
-window.calculateCGPA = function () {
-  const inputs = document.querySelectorAll("#cgpaInputs input");
-  const result = document.getElementById("cgpaResult");
-  let totalSGPA = 0;
-  let count = 0;
-
-  inputs.forEach(input => {
-    const value = parseFloat(input.value);
-    if (!isNaN(value) && value >= 0 && value <= 10) {
-      totalSGPA += value;
-      count++;
-    }
-  });
-
-  if (count === 0) {
-    result.textContent = "Please enter valid SGPA values.";
-    result.style.color = "red";
-  } else {
-    const cgpa = totalSGPA / count;
-    animateCGPA(cgpa); // 🚀 Animated result
-  }
-};
-
-  // ✅ Toggle SGPA / CGPA UI
+  // Toggle SGPA / CGPA UI
   window.toggleCalculationType = function () {
     const type = document.getElementById("calcType").value;
     const sgpaSection = document.getElementById("sgpaSection");
