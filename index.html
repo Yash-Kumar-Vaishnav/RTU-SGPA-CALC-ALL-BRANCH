@@ -1,70 +1,88 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- ✅ SEO Optimized Meta Tags -->
   <title>RTU SGPA Calculator - All Semesters & Branches</title>
   <meta name="description" content="RTU SGPA Calculator for all branches and semesters. Fast, accurate, and mobile-friendly SGPA tool for Rajasthan Technical University students.">
   <meta name="keywords" content="RTU SGPA Calculator, RTU GPA, RTU CGPA, JECRC, Rajasthan Technical University, RTU Engineering Result, RTU Marks to SGPA, RTU GPA Tool, RTU Engineering Calculator">
   <meta name="author" content="Yash Kumar Vaishnav" />
-  
-  <!-- ✅ Social Media (Open Graph) Tags -->
+
+  <!-- Social Media Tags -->
   <meta property="og:title" content="RTU SGPA Calculator - All Semesters & Branches" />
   <meta property="og:description" content="Fast and accurate SGPA Calculator for RTU students. Supports all branches and semesters." />
   <meta property="og:url" content="https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/" />
-  <meta property="og:type" content="https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/" />
+  <meta property="og:type" content="website" />
 
-  <!-- ✅ Favicon (optional) -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- ✅ Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- JECRC Logo -->
+  <!-- Logos -->
   <img src="Jecrc.png" alt="JECRC Logo" class="logo">
   <img src="RTU.png" alt="RTU Logo" class="logo2">
 
   <div class="container">
-    <h1>RTU SGPA Calculator</h1>
+    <h1>RTU SGPA & CGPA Calculator</h1>
 
-    <!-- Branch Selection -->
+    <!-- Calculation Type Selection -->
     <div class="selector">
-      <label for="branch">Select Branch:</label>
-      <select id="branch">
-        <option value="">-- Select Branch --</option>
-        <option value="CSE">CSE</option>
-        <option value="ECE">ECE</option>
-        <option value="AIDS">AIDS</option>
-        <option value="IT">IT</option>
-        <option value="CS_AI">CS_AI</option>
-        <option value="CIVIL">CIVIL</option>
-        <option value="EE">EE</option>
+      <label for="calcType">Select Calculation Type:</label>
+      <select id="calcType" onchange="toggleCalculationType()">
+        <option value="sgpa">SGPA</option>
+        <option value="cgpa">CGPA</option>
       </select>
     </div>
 
-    <!-- Semester Selection -->
-    <div class="selector">
-      <label for="semester">Select Semester:</label>
-      <select id="semester">
-        <option value="">-- Select Semester --</option>
-      </select>
+    <!-- SGPA Section -->
+    <div id="sgpaSection">
+      <div class="selector">
+        <label for="branch">Select Branch:</label>
+        <select id="branch">
+          <option value="">-- Select Branch --</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="AIDS">AIDS</option>
+          <option value="IT">IT</option>
+          <option value="CS_AI">CS_AI</option>
+          <option value="CIVIL">CIVIL</option>
+          <option value="EE">EE</option>
+        </select>
+      </div>
+
+      <div class="selector">
+        <label for="semester">Select Semester:</label>
+        <select id="semester">
+          <option value="">-- Select Semester --</option>
+        </select>
+      </div>
+
+      <div id="subjects" class="subjects"></div>
+
+      <button id="calculateBtn">Calculate SGPA</button>
+      <div id="sgpaResult" class="result"></div>
     </div>
 
-    <!-- Subjects & Grade Selection -->
-    <div id="subjects" class="subjects"></div>
+    <!-- CGPA Section -->
+    <div id="cgpaSection" style="display: none;">
+      <h3>Enter SGPA for Each Semester</h3>
+      <div id="cgpaInputs">
+        <!-- 8 semester inputs -->
+        <input type="number" step="0.01" placeholder="Semester 1 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 2 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 3 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 4 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 5 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 6 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 7 SGPA"><br>
+        <input type="number" step="0.01" placeholder="Semester 8 SGPA"><br>
+      </div>
+      <button onclick="calculateCGPA()">Calculate CGPA</button>
+      <div id="cgpaResult" class="result"></div>
+    </div>
 
-    <!-- Calculate Button -->
-    <button id="calculateBtn">Calculate SGPA</button>
-
-    <!-- SGPA Result -->
-    <div id="sgpaResult" class="result"></div>
   </div>
 
   <script src="script.js"></script>
