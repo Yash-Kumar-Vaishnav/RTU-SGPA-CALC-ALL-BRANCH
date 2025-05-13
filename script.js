@@ -749,12 +749,6 @@ const gradePoints = {
             }
         }, stepTime);
     }
-  document.getElementById('darkModeToggle').onclick = function() {
-  document.body.classList.toggle('dark');
-  this.innerText = document.body.classList.contains('dark') ? '☀️' : '🌙';
-};
-
-
     const branchSelect = document.getElementById("branch");
     const semesterSelect = document.getElementById("semester");
     const subjectsDiv = document.getElementById("subjects");
