@@ -71,7 +71,11 @@ label {
   font-weight: 600;
   text-transform: uppercase;
 }
-
+#cgpaInputs input {
+  margin: 5px 0;
+  padding: 5px;
+  width: 200px;
+}
 select {
   width: 100%;
   padding: 12px 16px;
