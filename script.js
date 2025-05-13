@@ -797,6 +797,7 @@ function animateSGPA(finalValue) {
     }, stepTime);
   }
 
+
   const branchSelect = document.getElementById("branch");
   const semesterSelect = document.getElementById("semester");
   const subjectsDiv = document.getElementById("subjects");
@@ -855,6 +856,11 @@ function animateSGPA(finalValue) {
       });
     }
   });
+function getOrdinal(n) {
+  const s = ["th", "st", "nd", "rd"],
+    v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
 
   // Calculate button logic for both SGPA and CGPA
   calculateBtn.addEventListener("click", function () {
@@ -898,7 +904,7 @@ function animateSGPA(finalValue) {
       let validInputs = true;
 
       semesterInputs.forEach((input, index) => {
-        const semester = (index + 1) + "th Semester"; // Or get from input
+       const semester = getOrdinal(index + 1) + " Semester"; // Or get from input
         const sgpaInput = parseFloat(input);
         if (isNaN(sgpaInput)) {
           validInputs = false;
