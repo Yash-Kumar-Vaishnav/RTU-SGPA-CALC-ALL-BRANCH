@@ -726,8 +726,7 @@ const gradePoints = {
         "E": 4,
         "F": 0
     };
-
-    function animateSGPA(finalValue) {
+        function animateSGPA(finalValue) {
         const resultElement = document.getElementById("sgpaResult");
         let current = 0.00;
         const duration = 2000; // total time for animation in ms
@@ -750,6 +749,11 @@ const gradePoints = {
             }
         }, stepTime);
     }
+  document.getElementById('darkModeToggle').onclick = function() {
+  document.body.classList.toggle('dark');
+  this.innerText = document.body.classList.contains('dark') ? '☀️' : '🌙';
+};
+
 
     const branchSelect = document.getElementById("branch");
     const semesterSelect = document.getElementById("semester");
