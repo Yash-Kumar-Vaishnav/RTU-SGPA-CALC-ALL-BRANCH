@@ -60,32 +60,21 @@
       </div>
 
       <div id="subjects" class="subjects"></div>
-
-      <button id="calculateBtn">Calculate SGPA</button>
-      <div id="sgpaResult" class="result"></div>
     </div>
 
     <!-- CGPA Section -->
     <div id="cgpaSection" style="display: none;">
-  <h3>Enter SGPA for Each Semester</h3>
-  <div id="cgpaInputs">
-    <!-- 8 semester inputs -->
-    <input type="number" step="0.01" placeholder="Semester 1 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 2 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 3 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 4 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 5 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 6 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 7 SGPA"><br>
-    <input type="number" step="0.01" placeholder="Semester 8 SGPA"><br>
+      <h3>Enter SGPA for Each Semester</h3>
+      <div id="cgpaInputs">
+        <!-- Inputs will be dynamically added by JS -->
+      </div>
+      <div id="cgpaResult" class="result"></div>
+    </div>
+
+    <!-- Common calculate button (shared for SGPA & CGPA) -->
+    <button id="calculateBtn">Calculate</button>
+    <div id="sgpaResult" class="result"></div>
   </div>
-  <!-- DO NOT add a separate calculate button here -->
-  <div id="cgpaResult" class="result"></div>
-</div>
-
-<!-- Common calculate button (already handled in JS) -->
-<button id="calculateBtn">Calculate</button>
-
 
   <script src="script.js"></script>
 </body>
