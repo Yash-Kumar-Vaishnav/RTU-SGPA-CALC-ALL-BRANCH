@@ -933,17 +933,35 @@ function animateSGPA(finalValue) {
     }
   });
 
-  window.toggleCalculationType = function () {
-    const type = document.getElementById("calcType").value;
-    const sgpaSection = document.getElementById("sgpaSection");
-    const cgpaSection = document.getElementById("cgpaSection");
+ window.toggleCalculationType = function () {
+  const type = document.getElementById("calcType").value;
+  const sgpaSection = document.getElementById("sgpaSection");
+  const cgpaSection = document.getElementById("cgpaSection");
+  const cgpaInputs = document.getElementById("cgpaInputs");
 
-    if (type === "cgpa") {
-      sgpaSection.style.display = "none";
-      cgpaSection.style.display = "block";
-    } else {
-      cgpaSection.style.display = "none";
-      sgpaSection.style.display = "block";
+  if (type === "cgpa") {
+    sgpaSection.style.display = "none";
+    cgpaSection.style.display = "block";
+
+    // Dynamically generate 8 SGPA input fields
+    cgpaInputs.innerHTML = ""; // Clear previous fields
+    for (let i = 1; i <= 8; i++) {
+      const label = document.createElement("label");
+      label.textContent = `Enter SGPA for Semester ${i}: `;
+      const input = document.createElement("input");
+      input.type = "number";
+      input.min = "0";
+      input.max = "10";
+      input.step = "0.01";
+      input.required = true;
+
+      cgpaInputs.appendChild(label);
+      cgpaInputs.appendChild(input);
+      cgpaInputs.appendChild(document.createElement("br"));
     }
-  };
-});
+  } else {
+    cgpaSection.style.display = "none";
+    sgpaSection.style.display = "block";
+  }
+};
+
