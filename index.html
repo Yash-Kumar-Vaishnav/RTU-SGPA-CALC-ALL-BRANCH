@@ -67,23 +67,25 @@
 
     <!-- CGPA Section -->
     <div id="cgpaSection" style="display: none;">
-      <h3>Enter SGPA for Each Semester</h3>
-      <div id="cgpaInputs">
-        <!-- 8 semester inputs -->
-        <input type="number" step="0.01" placeholder="Semester 1 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 2 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 3 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 4 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 5 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 6 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 7 SGPA"><br>
-        <input type="number" step="0.01" placeholder="Semester 8 SGPA"><br>
-      </div>
-      <button onclick="calculateCGPA()">Calculate CGPA</button>
-      <div id="cgpaResult" class="result"></div>
-    </div>
-
+  <h3>Enter SGPA for Each Semester</h3>
+  <div id="cgpaInputs">
+    <!-- 8 semester inputs -->
+    <input type="number" step="0.01" placeholder="Semester 1 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 2 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 3 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 4 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 5 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 6 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 7 SGPA"><br>
+    <input type="number" step="0.01" placeholder="Semester 8 SGPA"><br>
   </div>
+  <!-- DO NOT add a separate calculate button here -->
+  <div id="cgpaResult" class="result"></div>
+</div>
+
+<!-- Common calculate button (already handled in JS) -->
+<button id="calculateBtn">Calculate</button>
+
 
   <script src="script.js"></script>
 </body>
