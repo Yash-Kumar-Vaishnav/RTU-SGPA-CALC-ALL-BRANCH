@@ -812,7 +812,7 @@ function showSubjects(branch, semester) {
     div.classList.add("subject-row");
     div.innerHTML = `
       <div class="subject-name">${subj.name}</div>
-      <div class="subject-credit">${subj.credit} cr</div>
+      <div class="subject-credits">${subj.credits} cr</div>
       <select class="grade-select" id="grade-${i}">
         <option value="">Grade</option>
         ${Object.keys(gradeMap).map(g => `<option value="${g}">${g}</option>`).join("")}
