@@ -931,6 +931,7 @@ function calculateSGPA() {
   const sgpa = totalPoints / totalCredits;
  resultDiv.innerHTML = `<span id="animatedResult"></span>`;
 animateResult(sgpa, `Your SGPA for Semester ${semester}`);
+}
 
 
 // Calculate CGPA
@@ -968,4 +969,5 @@ function calculateCGPA() {
   const cgpa = numerator / denominator;
   resultDiv.innerHTML = `<span id="animatedResult"></span>`;
 animateResult(cgpa, `Your CGPA till Semester ${currentSem}`);
+}
 
