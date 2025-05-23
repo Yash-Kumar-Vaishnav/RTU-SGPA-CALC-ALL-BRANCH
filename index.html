@@ -1,16 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RTU CGPA/SGPA Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTU SGPA Calculator - All Semesters & Branches</title>
+  <meta name="description" content="RTU SGPA Calculator for all branches and semesters. Fast, accurate, and mobile-friendly SGPA tool for Rajasthan Technical University students.">
+  <meta name="keywords" content="RTU SGPA Calculator, RTU GPA, RTU CGPA, JECRC, Rajasthan Technical University, RTU Engineering Result, RTU Marks to SGPA, RTU GPA Tool, RTU Engineering Calculator">
+  <meta name="author" content="Yash Kumar Vaishnav" />
+
+  <!-- Social Media Tags -->
+  <meta property="og:title" content="RTU SGPA Calculator - All Semesters & Branches" />
+  <meta property="og:description" content="Fast and accurate SGPA Calculator for RTU students. Supports all branches and semesters." />
+  <meta property="og:url" content="https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="container">
-    <h1>RTU CGPA / SGPA Calculator</h1>
 
-    <div class="step" id="step1">
+<body>
+
+  <!-- Logos -->
+  <img src="Jecrc.png" alt="JECRC Logo" class="logo">
+  <img src="RTU.png" alt="RTU Logo" class="logo2">
+
+  <div class="container">
+    <h1>RTU SGPA & CGPA Calculator</h1>
+
+    <!-- Calculation Type Selection -->
+     <div class="step" id="step1">
       <label>Select Calculation Type:</label>
       <select id="calcType">
         <option value="">-- Select --</option>
@@ -19,8 +38,8 @@
       </select>
       <button onclick="goToStep2()">Next</button>
     </div>
-
-    <div class="step" id="step2" style="display:none;">
+    
+<div class="step" id="step2" style="display:none;">
       <label>Select Branch:</label>
       <select id="branchSelect">
         <option value="">-- Select Branch --</option>
