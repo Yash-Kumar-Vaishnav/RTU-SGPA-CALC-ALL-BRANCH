@@ -734,6 +734,32 @@ const gradeMap = {
     "F": 0
   };
 
+
+function animateResult(finalValue, label = "Result") {
+  const resultElement = document.getElementById("animatedResult");
+  let current = 0.0;
+  const duration = 2000;
+  const steps = 60;
+  const increment = finalValue / steps;
+  const stepTime = duration / steps;
+
+  resultElement.style.color = "#333";
+  resultElement.textContent = "Calculating...";
+
+  let counter = setInterval(() => {
+    current += increment;
+    if (current >= finalValue) {
+      current = finalValue;
+      clearInterval(counter);
+      resultElement.style.color = "#28a745";
+      resultElement.textContent = `${label}: ${current.toFixed(2)} ✅`;
+    } else {
+      resultElement.textContent = `${label}: ${current.toFixed(2)}`;
+    }
+  }, stepTime);
+}
+
+
  // UI Elements
 const step1 = document.getElementById("step1");
 const step2 = document.getElementById("step2");
@@ -903,8 +929,9 @@ function calculateSGPA() {
   }
 
   const sgpa = totalPoints / totalCredits;
-  resultDiv.textContent = `Your SGPA for Semester ${semester} is: ${sgpa.toFixed(2)}`;
-}
+ resultDiv.innerHTML = `<span id="animatedResult"></span>`;
+animateResult(sgpa, `Your SGPA for Semester ${semester}`);
+
 
 // Calculate CGPA
 function calculateCGPA() {
@@ -939,5 +966,6 @@ function calculateCGPA() {
   }
 
   const cgpa = numerator / denominator;
-  resultDiv.textContent = `Your CGPA till Semester ${currentSem} is: ${cgpa.toFixed(2)}`;
-}
+  resultDiv.innerHTML = `<span id="animatedResult"></span>`;
+animateResult(cgpa, `Your CGPA till Semester ${currentSem}`);
+
