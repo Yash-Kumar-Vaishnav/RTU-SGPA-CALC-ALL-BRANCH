@@ -919,8 +919,8 @@ function calculateSGPA() {
       return;
     }
     const point = gradeMap[grade];
-    totalPoints += point * subjects[i].credit;
-    totalCredits += subjects[i].credit;
+    totalPoints += point * subjects[i].credits;
+    totalCredits += subjects[i].credits;
   }
 
   if (totalCredits === 0) {
