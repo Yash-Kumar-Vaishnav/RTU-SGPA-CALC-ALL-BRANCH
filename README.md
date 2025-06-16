@@ -2,7 +2,7 @@
 
 A fast, accurate, and mobile-friendly **SGPA Calculator** built specifically for **Rajasthan Technical University (RTU)** students. Supports **all 8 semesters** and **all major engineering branches** like CSE, ECE, IT, AIDS, CS-AI, CIVIL, and EE.
 
-🌐 [Try the Live Tool Here](https://yashvaishnav19.github.io/RTU-SGPA-CALC-ALL-BRANCH/)  
+🌐 [Try the Live Tool Here](https://yash-kumar-vaishnav.github.io/RTU-SGPA-CALC-ALL-BRANCH/)  
 🔧 Built by: [Yash Kumar Vaishnav](https://github.com/YashVaishnav19)
 
 ---
