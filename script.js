@@ -233,8 +233,9 @@ ECE : {
     { "name": "Digital System Design", "credits": 3 },
     { "name": "Signals and Systems", "credits": 3 },
     { "name": "Network Theory", "credits": 3 },
-    { "name": "Electronic Devices Lab", "credits": 1.5 },
-    { "name": "Digital System Design Lab", "credits": 1.5 },
+    { "name": "Electronic Devices Lab", "credits": 1 },
+    { "name": "Digital System Design Lab", "credits": 1 },
+    { "name": "Computer Programming Lab", "credits": 1 },
     { "name": "Signals and Systems Lab / Simulation Lab", "credits": 1 },
     { "name": "Social Outreach, Discipline & Extra Curricular Activities", "credits": 0.5 }
   ],
